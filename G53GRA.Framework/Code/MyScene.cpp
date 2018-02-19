@@ -1,15 +1,17 @@
 #include "MyScene.h"
+#include "..\Code\Objects\Tree.h"
 
 MyScene::MyScene(int argc, char** argv, const char *title, const int& windowWidth, const int& windowHeight)
 	: Scene(argc, argv, title, windowWidth, windowHeight)
 {
-
+	Tree* myTree = new Tree(); //"fg+fh<g+fh<g+fh", 60.f
+	
+	AddObjectToScene(myTree);
 }
 
 void MyScene::Initialise()
 {
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-
+	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 }
 
 void MyScene::Projection()
