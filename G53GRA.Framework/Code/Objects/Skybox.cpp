@@ -16,9 +16,11 @@ void Skybox::Display() {
 	glRotatef(rotation[0], 1.f, 0.f, 0.f);
 	glRotatef(rotation[2], 0.f, 0.f, 1.f);
 
+	glColor3f(1, 1, 1);
+
 	glEnable(GL_TEXTURE_2D);
 	glEnable(GL_COLOR_MATERIAL);
-	glDisable(GL_LIGHTING);
+	//glDisable(GL_LIGHTING);
 	glBindTexture(GL_TEXTURE_2D, textureID[0]);
 
 	glBegin(GL_QUADS);
@@ -108,7 +110,7 @@ void Skybox::Display() {
 	glDisable(GL_COLOR_MATERIAL);
 	glBindTexture(GL_TEXTURE_2D, NULL);
 	glDisable(GL_TEXTURE_2D);
-	glEnable(GL_LIGHTING);
+	//glEnable(GL_LIGHTING);
 
 	glPopAttrib();
 	glPopMatrix();
