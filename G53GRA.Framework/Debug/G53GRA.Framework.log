@@ -1,6 +1,13 @@
 ﻿  Tree.cpp
-c:\users\psylr5\source\repos\g53gra-project\g53gra.framework\code\objects\tree.cpp(8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\psylr5\source\repos\g53gra-project\g53gra.framework\code\objects\tree.cpp(46): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\psylr5\source\repos\g53gra-project\g53gra.framework\code\objects\tree.cpp(56): warning C4305: 'initializing': truncation from 'double' to 'float'
-  G53GRA.Framework.vcxproj -> C:\Users\psylr5\Source\Repos\G53GRA-Project\Debug\G53GRA.Framework.exe
-  G53GRA.Framework.vcxproj -> C:\Users\psylr5\Source\Repos\G53GRA-Project\Debug\G53GRA.Framework.pdb (Partial PDB)
+z:\year 3\g53gra-project\g53gra.framework\code\objects\tree.cpp(8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+z:\year 3\g53gra-project\g53gra.framework\code\objects\tree.cpp(45): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+z:\year 3\g53gra-project\g53gra.framework\code\objects\tree.cpp(55): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Texture.cpp
+  Camera.cpp
+  Scene.cpp
+  Engine.cpp
+  MyScene.cpp
+  main.cpp
+  Generating Code...
+  G53GRA.Framework.vcxproj -> Z:\Year 3\G53GRA-Project\Debug\G53GRA.Framework.exe
+  G53GRA.Framework.vcxproj -> Z:\Year 3\G53GRA-Project\Debug\G53GRA.Framework.pdb (Partial PDB)
