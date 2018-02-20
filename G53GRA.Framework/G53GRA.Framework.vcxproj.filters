@@ -36,6 +36,9 @@
     <ClCompile Include="Code\Objects\Tree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Objects\Skybox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\Engine\Engine.h">
@@ -68,5 +71,13 @@
     <ClInclude Include="Code\Objects\Tree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Objects\Skybox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Textures\skybox_texture.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -19,7 +19,10 @@ public:
 
 private:
 	void branch();
+	void leaf();
 	string sequence;
 	float angle;
+	string genRandSeq(int maxBranchLength, int branchRate, int depth, int trunkHeight, int level);
+	float color[3] = { .65f, .16f, .16f };
 };
 
