@@ -47,7 +47,7 @@ void Sun::Update(const double& deltaTime)
 		light_ambient[i] = sin(orbitRotation * M_PI / 180) * 2.f * color[i];
 	}
 
-	printf("Orbit: %f - Intensity: %f%%, Red: %f, Green: %f, Blue: %f\r\n",orbitRotation, (sin(orbitRotation * M_PI / 180 ) + 1) / 2 * 100, color[0],color[1],color[2]);
+	//printf("Orbit: %f - Intensity: %f%%, Red: %f, Green: %f, Blue: %f\r\n",orbitRotation, (sin(orbitRotation * M_PI / 180 ) + 1) / 2 * 100, color[0],color[1],color[2]);
 
 	glLightfv(GL_LIGHT1, GL_AMBIENT, light_ambient);
 

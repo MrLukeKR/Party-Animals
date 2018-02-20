@@ -38,17 +38,16 @@ void Moon::Update(const double& deltaTime)
 	else if((int)orbitRotation == 180)
 		glDisable(GL_LIGHT2);
 
-
 	for (int i = 0; i < 4; i++) {
 		//light_ambient[i] = sin(orbitRotation * M_PI / 180) / 100.f;
 		light_diffuse[i] = sin(orbitRotation * M_PI / 180);
 	}
 
 	glLightfv(GL_LIGHT2, GL_DIFFUSE, light_diffuse);
-	glLightfv(GL_LIGHT2, GL_POSITION, light_position);
 	glLightfv(GL_LIGHT2, GL_SPECULAR, light_diffuse);
+	glLightfv(GL_LIGHT2, GL_POSITION, light_position);
 
-	printf("%f - %f\r\n",orbitRotation, sin(orbitRotation * M_PI / 180 ));
+	//printf("%f - %f\r\n",orbitRotation, sin(orbitRotation * M_PI / 180 ));
 
 	orbitRotation += .1f;
 	if (orbitRotation >= 360.f)

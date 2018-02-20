@@ -34,10 +34,13 @@ void MyScene::Initialise()
 
 	AddObjectToScene(moon);
 	
-	DisplayableObject* tree = new Tree();
-	tree->size(1, 1, 1);
+	for (int i = 0; i < 10; i++) {
+		DisplayableObject* tree = new Tree();
+		tree->size(1, 1, 1);
+		tree->position(rand() % 1000, 0, rand() % 1000);
 
-	AddObjectToScene(tree);
+		AddObjectToScene(tree);
+	}
 
 	DisplayableObject* terrain = new Terrain();
 

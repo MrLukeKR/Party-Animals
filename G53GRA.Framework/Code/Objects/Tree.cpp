@@ -7,7 +7,7 @@ static bool randomInitialise = false;
 string Tree::genRandSeq(int maxBranchLength, int branchRate, int depth, int trunkHeight, int level) {
 	string randSeq;
 
-	angle = (rand() % 120 * 100) / 100.f;
+	angle = (rand() % 90 * 100) / 100.f;
 
 	int rndDir = round(rand() % 6);
 
@@ -50,7 +50,7 @@ string Tree::genRandSeq(int maxBranchLength, int branchRate, int depth, int trun
 		if (depth > 0) 
 			randSeq += genRandSeq(maxBranchLength, branchRate, depth - 1, 5, level + 1);
 		else
-			randSeq += 'l';
+			randSeq += 'l' + std::to_string(rand() % 3);
 		randSeq += 'h';
 }
 
@@ -75,8 +75,8 @@ Tree::Tree(string seq, float branchAngle)
 	}
 }
 
-void Tree::leaf() {
-	
+void Tree::leaf(int size) {
+	glutSolidSphere(size,10,10);
 }
 
 void Tree::branch() {
@@ -149,8 +149,8 @@ void Tree::Display() {
 			glRotatef(180.f, 0.f, 1.f, 0.f);
 			break;
 		case 'l':
-			glColor3f(0.f, 1.f, 0.f);
-			leaf();
+			glColor4f(0.f, 1.f, 0.f,0.7f);
+			leaf(atoi(&sequence[i + 1]));
 			glColor3f(.65f, .16f, .16f);
 			break;
 		}
