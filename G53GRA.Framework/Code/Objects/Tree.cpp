@@ -19,7 +19,7 @@ string Tree::genRandSeq(int maxBranchLength, int branchRate, int depth, int trun
 		length = (rand() % maxBranchLength);
 
 	for(int h = 0; h < length + 1; h++)
-		randSeq += "fs";
+		randSeq += "f";
 	
 	switch (rndDir) {
 	case 0:
@@ -147,9 +147,6 @@ void Tree::Display() {
 			break;
 		case '|':
 			glRotatef(180.f, 0.f, 1.f, 0.f);
-			break;
-		case 's':
-			glScalef(scale[0] * .95f,scale[1] * .95f,scale[2] * .95f);
 			break;
 		case 'l':
 			glColor3f(0.f, 1.f, 0.f);

@@ -1,12 +1,8 @@
 #include "Sun.h"
 
+
 Sun::Sun()
 {
-	glLightfv(GL_LIGHT1, GL_AMBIENT, light_ambient);
-	glLightfv(GL_LIGHT1, GL_DIFFUSE, light_diffuse);
-	glLightfv(GL_LIGHT1, GL_SPECULAR, light_specular);
-	glLightfv(GL_LIGHT1, GL_POSITION, light_position);
-	glEnable(GL_LIGHT1);
 }
 
 Sun::~Sun()
@@ -28,9 +24,9 @@ void Sun::Display() {
 	glRotatef(orbitRotation, 0, 0, 1);
 	glTranslatef(pos[0], pos[1], pos[2]);
 
-	glColor3f(0.95f,0.95f,0.5f);
+	glColor3f(color[0], color[1], color[2]);
 
-	glutSolidSphere(scale[0],10,10);	
+	glutSolidSphere(scale[0],20,20);	
 
 	glPopMatrix();
 	glPopMatrix();
@@ -38,6 +34,23 @@ void Sun::Display() {
 
 void Sun::Update(const double& deltaTime)
 {
+	if((int) orbitRotation == 0)
+		glEnable(GL_LIGHT1);
+	else if((int) orbitRotation == 180)
+		glDisable(GL_LIGHT1);
+
+	//color[0] = std::fmax(sin(orbitRotation * M_PI / 360), 0);
+	color[1] = std::fmax(cos((orbitRotation - 90)* M_PI / 180 * 0.647),0);
+	color[2] = std::fmax(sin(orbitRotation * M_PI / 180),0);
+	 
+	for (int i = 0; i < 4; i++) {
+		light_ambient[i] = sin(orbitRotation * M_PI / 180) * 2.f * color[i];
+	}
+
+	printf("Orbit: %f - Intensity: %f%%, Red: %f, Green: %f, Blue: %f\r\n",orbitRotation, (sin(orbitRotation * M_PI / 180 ) + 1) / 2 * 100, color[0],color[1],color[2]);
+
+	glLightfv(GL_LIGHT1, GL_AMBIENT, light_ambient);
+
 	orbitRotation += .1f;
 	if (orbitRotation >= 360.f)
 		orbitRotation = 0;

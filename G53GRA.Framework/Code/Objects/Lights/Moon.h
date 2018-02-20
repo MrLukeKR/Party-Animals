@@ -4,21 +4,20 @@
 #include ".\Animation.h"
 #include <cmath>
 
-class Sun :
+class Moon :
 	public DisplayableObject,
 	public Animation
 {
 public:
-	Sun();
-	~Sun();
+	Moon();
+	~Moon();
 
 	void Display();
 	void Update(const double& deltaTime);
 private:
-	float orbitRotation = 0.f;
-	float color[3] = { 1.f,0.647f,0.0f };
-	GLfloat light_ambient[4] = { 1.0, 1.0, 1.0, 1.0 };
+	float orbitRotation = 180.f;
+	GLfloat light_position[4] = { 0,1,0,1 };
 	GLfloat light_diffuse[4] = { 1.0, 1.0, 1.0, 1.0 };
-	GLfloat light_specular[4] = { 1.0, 1.0, 1.0, 1.0 };
-	GLfloat light_position[4] = { 0.0, 1.0, 0.0, 0.0 };
+	GLfloat light_ambient[4] = { .1f, .1f, .1f, .1f };
 };
+

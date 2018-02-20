@@ -2,6 +2,7 @@
 #include "..\Code\Objects\Tree.h"
 #include "Objects\Skybox.h"
 #include "Objects\Lights\Sun.h"
+#include "Objects\Lights\Moon.h"
 #include "Objects\Terrain.h"
 
 MyScene::MyScene(int argc, char** argv, const char *title, const int& windowWidth, const int& windowHeight)
@@ -13,17 +14,26 @@ void MyScene::Initialise()
 {
 	glClearColor(0.f, 0.0f, 0.0f, 1.0f);
 
+	glDisable(GL_LIGHT0);
+
 	DisplayableObject* skybox = new Skybox(new string[6] { "./Textures/skyboxes/bluecloud/bluecloud_bk.bmp" , "./Textures/skyboxes/bluecloud/bluecloud_lf.bmp" ,"./Textures/skyboxes/bluecloud/bluecloud_ft.bmp" ,"./Textures/skyboxes/bluecloud/bluecloud_rt.bmp" ,"./Textures/skyboxes/bluecloud/bluecloud_up.bmp" ,"./Textures/skyboxes/bluecloud/bluecloud_up.bmp" });
 	skybox->size(10000);
 	AddObjectToScene(skybox);
 
 	DisplayableObject* sun = new Sun();
 
-	sun->position(0, 500, 0);
+	sun->position(500, 0, 0);
 	sun->size(10, 10, 10);
 
 	AddObjectToScene(sun);
+	
+	DisplayableObject* moon = new Moon();
 
+	moon->position(500, 0, 0);
+	moon->size(10, 10, 10);
+
+	AddObjectToScene(moon);
+	
 	DisplayableObject* tree = new Tree();
 	tree->size(1, 1, 1);
 

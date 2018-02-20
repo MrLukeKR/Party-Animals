@@ -39,10 +39,13 @@
     <ClCompile Include="Code\Objects\Skybox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Objects\Terrain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Code\Objects\Lights\Sun.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Objects\Terrain.cpp">
+    <ClCompile Include="Code\Objects\Lights\Moon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -84,6 +87,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Code\Objects\Terrain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Objects\Lights\Moon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

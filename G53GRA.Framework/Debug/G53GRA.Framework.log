@@ -1,3 +1,4 @@
-﻿  Terrain.cpp
+﻿  Moon.cpp
+z:\year 3\g53gra-project\g53gra.framework\code\objects\lights\moon.cpp(44): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
   G53GRA.Framework.vcxproj -> Z:\Year 3\G53GRA-Project\Debug\G53GRA.Framework.exe
   G53GRA.Framework.vcxproj -> Z:\Year 3\G53GRA-Project\Debug\G53GRA.Framework.pdb (Partial PDB)
