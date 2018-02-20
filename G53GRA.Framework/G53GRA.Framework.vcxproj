@@ -14,6 +14,7 @@
     <ClCompile Include="Framework\Utility\Camera.cpp" />
     <ClCompile Include="Framework\Utility\Texture.cpp" />
     <ClCompile Include="Code\Objects\Tree.cpp" />
+    <ClCompile Include="Code\Objects\Skybox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\MyScene.h" />
@@ -26,10 +27,15 @@
     <ClInclude Include="Framework\Utility\Texture.h" />
     <ClInclude Include="Framework\Utility\VectorMath.h" />
     <ClInclude Include="Code\Objects\Tree.h" />
+    <ClInclude Include="Code\Objects\Skybox.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Textures\skybox_texture.bmp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{CE3A8304-475E-425E-BA11-FDAA6293C905}</ProjectGuid>
     <RootNamespace>G53GRAFramework</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
