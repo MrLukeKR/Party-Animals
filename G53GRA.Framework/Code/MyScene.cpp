@@ -3,6 +3,7 @@
 #include "Objects\Skybox.h"
 #include "Objects\Lights\Sun.h"
 #include "Objects\Lights\Moon.h"
+#include "Objects\Animals\Giraffe.h"
 #include "Objects\Terrain.h"
 
 MyScene::MyScene(int argc, char** argv, const char *title, const int& windowWidth, const int& windowHeight)
@@ -34,14 +35,21 @@ void MyScene::Initialise()
 
 	AddObjectToScene(moon);
 	
-	for (int i = 0; i < 10; i++) {
+	DisplayableObject* giraffe = new Giraffe();
+
+	giraffe->position(0, 0, 900);
+	giraffe->size(5, 5, 5);
+
+	AddObjectToScene(giraffe);
+
+	/*for (int i = 0; i < 10; i++) {
 		DisplayableObject* tree = new Tree();
 		tree->size(1, 1, 1);
-		tree->position(rand() % 1000, 0, rand() % 1000);
+		tree->position(rand() % 100, 0, rand() % 100);
 
 		AddObjectToScene(tree);
 	}
-
+	*/
 	DisplayableObject* terrain = new Terrain();
 
 	terrain->size(100, 100, 100);
