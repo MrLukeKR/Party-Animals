@@ -5,6 +5,10 @@
 #include "Objects\Lights\Moon.h"
 #include "Objects\Animals\Giraffe.h"
 #include "Objects\Terrain.h"
+#include "Objects\Lights\DiscoLight.h"
+#include "Objects\DJ Objects\Speaker.h"
+#include "Objects\DJ Objects\Scaffolding.h"
+#include "Objects\DJ Objects\DJDecks.h"
 
 MyScene::MyScene(int argc, char** argv, const char *title, const int& windowWidth, const int& windowHeight)
 	: Scene(argc, argv, title, windowWidth, windowHeight)
@@ -17,6 +21,8 @@ void MyScene::Initialise()
 
 	glDisable(GL_LIGHT0);
 
+	prevTime = glutGet(GLUT_ELAPSED_TIME);
+
 	DisplayableObject* skybox = new Skybox(new string[6] { "./Textures/skyboxes/bluecloud/bluecloud_bk.bmp" , "./Textures/skyboxes/bluecloud/bluecloud_lf.bmp" ,"./Textures/skyboxes/bluecloud/bluecloud_ft.bmp" ,"./Textures/skyboxes/bluecloud/bluecloud_rt.bmp" ,"./Textures/skyboxes/bluecloud/bluecloud_up.bmp" ,"./Textures/skyboxes/bluecloud/bluecloud_up.bmp" });
 	skybox->size(10000);
 	AddObjectToScene(skybox);
@@ -26,16 +32,16 @@ void MyScene::Initialise()
 	sun->position(500, 0, 0);
 	sun->size(10, 10, 10);
 
-	AddObjectToScene(sun);
+	//AddObjectToScene(sun);
 	
 	DisplayableObject* moon = new Moon();
 
 	moon->position(500, 0, 0);
 	moon->size(10, 10, 10);
 
-	AddObjectToScene(moon);
+	//AddObjectToScene(moon);
 	
-	DisplayableObject* giraffe = new Giraffe();
+	Giraffe* giraffe = new Giraffe();
 
 	giraffe->position(0, 0, 900);
 	giraffe->size(5, 5, 5);
@@ -51,9 +57,44 @@ void MyScene::Initialise()
 	}
 	*/
 	DisplayableObject* terrain = new Terrain();
-
-	terrain->size(100, 100, 100);
+	
+	terrain->size(2, 1, 2);
+	terrain->position(1, -10, 900);
 	AddObjectToScene(terrain);
+
+	DisplayableObject* discoLight1 = new DiscoLight(-1,-1,1, GL_LIGHT3, 1);
+	discoLight1->position(100, 13.5f, 870);
+
+	AddObjectToScene(discoLight1);
+
+	DisplayableObject* discoLight2 = new DiscoLight(-1, -1, -1, GL_LIGHT4, 4);
+	discoLight2->position(100, 13.5f, 930);
+
+	AddObjectToScene(discoLight2);
+
+	DisplayableObject* speaker1 = new Speaker();
+	speaker1->position(100, 10, 950);
+	speaker1->size(2, 2, 2);
+
+	AddObjectToScene(speaker1);
+
+	DisplayableObject* speaker2 = new Speaker();
+	speaker2->position(100, 10, 850);
+	speaker2->size(2, 2, 2);
+
+	AddObjectToScene(speaker2);
+
+	DisplayableObject* djScaffolding = new Scaffolding();
+	djScaffolding->position(100, 15, 900);
+	djScaffolding->size(1, 1, 1);
+
+	AddObjectToScene(djScaffolding);
+
+	DisplayableObject* djDecks = new DJDecks();
+	djDecks->position(100, 1, 900);
+	djDecks->size(1, 1, 1);
+
+	AddObjectToScene(djDecks);
 }
 
 void MyScene::Projection()

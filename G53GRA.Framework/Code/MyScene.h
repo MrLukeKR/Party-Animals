@@ -13,4 +13,5 @@ private:
 	void Initialise();
 	void Projection();
 
+	int prevTime = 0;
 };

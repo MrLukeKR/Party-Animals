@@ -2,6 +2,8 @@ z:\year 3\g53gra-project\g53gra.framework\debug\vc141.pdb
 z:\year 3\g53gra-project\g53gra.framework\debug\vc141.idb
 z:\year 3\g53gra-project\g53gra.framework\debug\main.obj
 z:\year 3\g53gra-project\g53gra.framework\debug\myscene.obj
+z:\year 3\g53gra-project\g53gra.framework\debug\moon.obj
+z:\year 3\g53gra-project\g53gra.framework\debug\sun.obj
 z:\year 3\g53gra-project\g53gra.framework\debug\engine.obj
 z:\year 3\g53gra-project\g53gra.framework\debug\scene.obj
 z:\year 3\g53gra-project\g53gra.framework\debug\camera.obj
@@ -9,8 +11,11 @@ z:\year 3\g53gra-project\g53gra.framework\debug\texture.obj
 z:\year 3\g53gra-project\g53gra.framework\debug\tree.obj
 z:\year 3\g53gra-project\g53gra.framework\debug\skybox.obj
 z:\year 3\g53gra-project\g53gra.framework\debug\terrain.obj
-z:\year 3\g53gra-project\g53gra.framework\debug\sun.obj
-z:\year 3\g53gra-project\g53gra.framework\debug\moon.obj
+z:\year 3\g53gra-project\g53gra.framework\debug\giraffe.obj
+z:\year 3\g53gra-project\g53gra.framework\debug\discolight.obj
+z:\year 3\g53gra-project\g53gra.framework\debug\speaker.obj
+z:\year 3\g53gra-project\g53gra.framework\debug\scaffolding.obj
+z:\year 3\g53gra-project\g53gra.framework\debug\djdecks.obj
 z:\year 3\g53gra-project\debug\g53gra.framework.ilk
 z:\year 3\g53gra-project\debug\g53gra.framework.exe
 z:\year 3\g53gra-project\debug\g53gra.framework.pdb

@@ -2,6 +2,7 @@
 
 Terrain::Terrain()
 {
+	sandTex = Scene::GetTexture("./Textures/sand.bmp");;
 }
 
 
@@ -19,16 +20,34 @@ void Terrain::Display() {
 	glRotatef(rotation[0], 1.f, 0.f, 0.f);
 	glRotatef(rotation[2], 0.f, 0.f, 1.f);
 
-	glColor3f(1, 1, 1);
+	glColor3f(1, 0.871f, 0.678f);
+	glEnable(GL_TEXTURE_2D);
+	glEnable(GL_COLOR_MATERIAL);
+	//glDisable(GL_LIGHTING);
 
-	glBegin(GL_QUADS);
+	glBindTexture(GL_TEXTURE_2D, sandTex);
+	
+	for (int x = -250; x < 250; x++)
+	{
+		for (int y = -250; y < 250; y++)
+		{
+			glBegin(GL_QUADS);
+			glNormal3f(0,1,0);
+			glTexCoord2d(0,0);
+			glVertex3f(x, -0.1f, y);
+			glTexCoord2d(1, 0);
+			glVertex3f(x, -0.1f, y+1);
+			glTexCoord2d(1, 1);
+			glVertex3f(x+1, -0.1f, y+1);
+			glTexCoord2d(0, 1);
+			glVertex3f(x+1, -0.1f, y);
+			glEnd();
+		}
+	}
 
-	glVertex3f(-100,-0.1f,-100);
-	glVertex3f(-100, -0.1f,100);
-	glVertex3f(100, -0.1f,100);
-	glVertex3f(100, -0.1f,-100);
-
-	glEnd();
+	glDisable(GL_COLOR_MATERIAL);
+	glBindTexture(GL_TEXTURE_2D, NULL);
+	glDisable(GL_TEXTURE_2D);
 
 	glPopAttrib();
 	glPopMatrix();

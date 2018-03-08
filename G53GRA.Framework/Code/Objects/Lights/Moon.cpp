@@ -22,7 +22,6 @@ void Moon::Display() {
 	glTranslatef(-pos[0], -pos[1], -pos[2]);
 	glRotatef(orbitRotation, 0, 0, 1);
 	glTranslatef(pos[0], pos[1], pos[2]);
-
 	glColor3f(1.f,1.f,1.f);
 
 	glutSolidSphere(scale[0],10,10);	

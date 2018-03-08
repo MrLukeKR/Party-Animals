@@ -11,6 +11,8 @@
     <ClCompile Include="Code\MyScene.cpp" />
     <ClCompile Include="Code\Objects\Lights\Moon.cpp" />
     <ClCompile Include="Code\Objects\Lights\Sun.cpp" />
+    <ClCompile Include="Code\Objects\Lights\DiscoLight.cpp" />
+    <ClCompile Include="Code\Objects\DJ Objects\DJDecks.cpp" />
     <ClCompile Include="Framework\Engine\Engine.cpp" />
     <ClCompile Include="Framework\Engine\Scene.cpp" />
     <ClCompile Include="Framework\Utility\Camera.cpp" />
@@ -19,10 +21,14 @@
     <ClCompile Include="Code\Objects\Skybox.cpp" />
     <ClCompile Include="Code\Objects\Terrain.cpp" />
     <ClCompile Include="Code\Objects\Animals\Giraffe.cpp" />
+    <ClCompile Include="Code\Objects\DJ Objects\Speaker.cpp" />
+    <ClCompile Include="Code\Objects\DJ Objects\Scaffolding.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\MyScene.h" />
     <ClInclude Include="Code\Objects\Lights\Moon.h" />
+    <ClInclude Include="Code\Objects\Lights\DiscoLight.h" />
+    <ClInclude Include="Code\Objects\DJ Objects\DJDecks.h" />
     <ClInclude Include="Framework\Engine\Engine.h" />
     <ClInclude Include="Framework\Engine\Scene.h" />
     <ClInclude Include="Framework\Interface\Animation.h" />
@@ -36,6 +42,8 @@
     <ClInclude Include="Code\Objects\Lights\Sun.h" />
     <ClInclude Include="Code\Objects\Terrain.h" />
     <ClInclude Include="Code\Objects\Animals\Giraffe.h" />
+    <ClInclude Include="Code\Objects\DJ Objects\Speaker.h" />
+    <ClInclude Include="Code\Objects\DJ Objects\Scaffolding.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Textures\skybox_texture.bmp" />

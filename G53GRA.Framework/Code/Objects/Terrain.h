@@ -8,5 +8,7 @@ public:
 	~Terrain();
 
 	void Display();
-};
 
+private:
+	GLuint sandTex;
+};

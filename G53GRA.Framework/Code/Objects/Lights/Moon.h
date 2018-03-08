@@ -16,7 +16,7 @@ public:
 	void Update(const double& deltaTime);
 private:
 	float orbitRotation = 180.f;
-	GLfloat light_position[4] = { 0,1,0,0 };
+	GLfloat light_position[4] = { 0, 10, 0, 0 };
 	GLfloat light_diffuse[4] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat light_ambient[4] = { .1f, .1f, .1f, .1f };
 };
