@@ -1,17 +1,14 @@
-#include "DJDecks.h"
+#include "Elephant.h"
 
-DJDecks::DJDecks()
+Elephant::Elephant()
 {
-
 }
 
-
-DJDecks::~DJDecks()
+Elephant::~Elephant()
 {
-
 }
 
-void DJDecks::Display() {
+void Elephant::Display() {
 	glPushMatrix();
 	glPushAttrib(GL_ALL_ATTRIB_BITS);
 
@@ -21,56 +18,47 @@ void DJDecks::Display() {
 	glRotatef(rotation[1], 0.f, 1.f, 0.f);
 	glRotatef(rotation[2], 0.f, 0.f, 1.f);
 
-	glTranslatef(0, -5, 0);
-	drawPodium();
-	drawTurntable();
+	drawBody();
+
 	glPushMatrix();
-	glTranslatef(0, 0, -1.75f);
-	drawVinyl();
+	glTranslatef(-6, -7, 4);
+	drawLeg();
 	glPopMatrix();
 	glPushMatrix();
-	glTranslatef(0, 0, 1.75f);
-	drawVinyl();
+	glTranslatef(6, -7, 4);
+	drawLeg();
 	glPopMatrix();
+	glPushMatrix();
+	glTranslatef(6, -7, -4);
+	drawLeg();
+	glPopMatrix();
+	glPushMatrix();
+	glTranslatef(-6, -7, -4);
+	drawLeg();
+	glPopMatrix();
+
 	glPopAttrib();
 	glPopMatrix();
 }
 
-void DJDecks::drawVinyl() {
+void Elephant::drawBody() {
 	glPushMatrix();
-	glTranslatef(0, 4.5f, 0);
-	glRotatef(-90, 1, 0, 0);
-	gluCylinder(gluNewQuadric(), 1, 0.6f, 0.2f, 10, 10);
-	glRotatef(90, 1, 0, 0);
-	glTranslatef(0, .2f, 0);
-	glBegin(GL_TRIANGLE_FAN);
-	float r = 0.6f;
-	float res = 20 ;
-	glVertex3f(0, 0, 0);
-	for (int i = res; i >= 0; i--)
-		glVertex3f(r * cos(i * 2 * 3.14159265f / res), 0, r * sin(i * 2 * 3.14159265f / res));
-
-	glEnd();
-
+	box(7, 5, 5);
 	glPopMatrix();
 }
 
-void DJDecks::drawTurntable() {
+void Elephant::drawLeg() {
 	glPushMatrix();
-	glTranslatef(0, 4, 0);
-	box(2, .5f, 3);
+	box(1, 3, 1);
 	glPopMatrix();
 }
 
-void DJDecks::drawPodium() {
-	glPushMatrix();
+void Elephant::Update(const double& dT) {
 
-	box(3,4,7);
-	glPopMatrix();
 }
 
-void DJDecks::box(float x, float y, float z) {
-	glScalef(x,y,z);
+void Elephant::box(float x, float y, float z) {
+	glScalef(x, y, z);
 	//FRONT FACE
 	glBegin(GL_QUADS);
 	glNormal3f(0, 0, 1);

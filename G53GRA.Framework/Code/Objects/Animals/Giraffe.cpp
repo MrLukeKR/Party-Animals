@@ -53,9 +53,12 @@ void Giraffe::drawGiraffe() {
 }
 
 void Giraffe::drawTail() {
-	glTranslatef(0.f, -1.f, 0.f);
+	glPushMatrix();
+	glTranslatef(0.35f, -0.25f, 0.f);
+	glRotatef(-10, 0, 0, 1);
 	glColor3f(1.f, 1.f, 0.f);
-	box(0.2f, 1, 0.2f, giraffeTex);
+	box(0.05f, 0.5f, 0.05f, giraffeTex);
+	glPopMatrix();
 }
 
 void Giraffe::Display() {
@@ -68,6 +71,7 @@ void Giraffe::Display() {
 	glRotatef(rotation[1], 0.f, 1.f, 0.f);
 	glRotatef(rotation[2], 0.f, 0.f, 1.f);
 
+	glScalef(5, 5, 5);
 	drawGiraffe();
 
 	glPopAttrib();

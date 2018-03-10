@@ -13,6 +13,7 @@
     <ClCompile Include="Code\Objects\Lights\Sun.cpp" />
     <ClCompile Include="Code\Objects\Lights\DiscoLight.cpp" />
     <ClCompile Include="Code\Objects\DJ Objects\DJDecks.cpp" />
+    <ClCompile Include="Code\Objects\Animals\Elephant.cpp" />
     <ClCompile Include="Framework\Engine\Engine.cpp" />
     <ClCompile Include="Framework\Engine\Scene.cpp" />
     <ClCompile Include="Framework\Utility\Camera.cpp" />
@@ -29,6 +30,7 @@
     <ClInclude Include="Code\Objects\Lights\Moon.h" />
     <ClInclude Include="Code\Objects\Lights\DiscoLight.h" />
     <ClInclude Include="Code\Objects\DJ Objects\DJDecks.h" />
+    <ClInclude Include="Code\Objects\Animals\Elephant.h" />
     <ClInclude Include="Framework\Engine\Engine.h" />
     <ClInclude Include="Framework\Engine\Scene.h" />
     <ClInclude Include="Framework\Interface\Animation.h" />

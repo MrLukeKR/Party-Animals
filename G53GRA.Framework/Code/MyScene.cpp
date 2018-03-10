@@ -4,6 +4,7 @@
 #include "Objects\Lights\Sun.h"
 #include "Objects\Lights\Moon.h"
 #include "Objects\Animals\Giraffe.h"
+#include "Objects\Animals\Elephant.h"
 #include "Objects\Terrain.h"
 #include "Objects\Lights\DiscoLight.h"
 #include "Objects\DJ Objects\Speaker.h"
@@ -43,10 +44,17 @@ void MyScene::Initialise()
 	
 	Giraffe* giraffe = new Giraffe();
 
-	giraffe->position(0, 0, 900);
-	giraffe->size(5, 5, 5);
+	giraffe->position(0, 0, 910);
+	giraffe->size(1, 1, 1);
 
 	AddObjectToScene(giraffe);
+
+	Elephant* elephant = new Elephant();
+
+	elephant->position(0, 0, 890);
+	elephant->size(1, 1, 1);
+
+	AddObjectToScene(elephant);
 
 	/*for (int i = 0; i < 10; i++) {
 		DisplayableObject* tree = new Tree();
@@ -91,7 +99,7 @@ void MyScene::Initialise()
 	AddObjectToScene(djScaffolding);
 
 	DisplayableObject* djDecks = new DJDecks();
-	djDecks->position(100, 1, 900);
+	djDecks->position(100, 0, 900);
 	djDecks->size(1, 1, 1);
 
 	AddObjectToScene(djDecks);
