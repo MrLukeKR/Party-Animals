@@ -100,7 +100,6 @@ void Giraffe::Update(const double& dT) {
 		neckAngle = -25.f;
 		headAngle = -80.f;
 		neckSpinAngle = -5.f;
-
 	}
 	else if (animationStage < 4.f || animationStage > 11.f)
 	{
