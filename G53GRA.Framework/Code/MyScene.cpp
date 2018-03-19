@@ -10,6 +10,7 @@
 #include "Objects\DJ Objects\Speaker.h"
 #include "Objects\DJ Objects\Scaffolding.h"
 #include "Objects\DJ Objects\DJDecks.h"
+#include "Objects\DJ Objects\DanceFloor.h"
 
 MyScene::MyScene(int argc, char** argv, const char *title, const int& windowWidth, const int& windowHeight)
 	: Scene(argc, argv, title, windowWidth, windowHeight)
@@ -103,6 +104,10 @@ void MyScene::Initialise()
 	djDecks->size(1, 1, 1);
 
 	AddObjectToScene(djDecks);
+
+	DisplayableObject* danceFloor = new DanceFloor();
+	danceFloor->position(100, 0.2f, 900);
+	danceFloor->size(1, 1, 1);
 }
 
 void MyScene::Projection()

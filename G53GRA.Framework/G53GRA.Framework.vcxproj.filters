@@ -66,6 +66,9 @@
     <ClCompile Include="Code\Objects\Animals\Elephant.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Objects\DJ Objects\DanceFloor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\Engine\Engine.h">
@@ -126,6 +129,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Code\Objects\Animals\Elephant.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Objects\DJ Objects\DanceFloor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
