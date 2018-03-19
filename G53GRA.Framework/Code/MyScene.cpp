@@ -106,8 +106,10 @@ void MyScene::Initialise()
 	AddObjectToScene(djDecks);
 
 	DisplayableObject* danceFloor = new DanceFloor();
-	danceFloor->position(100, 0.2f, 900);
-	danceFloor->size(1, 1, 1);
+	danceFloor->position(40, -9.9f, 900);
+	danceFloor->size(5, 1, 5);
+
+	AddObjectToScene(danceFloor);
 }
 
 void MyScene::Projection()

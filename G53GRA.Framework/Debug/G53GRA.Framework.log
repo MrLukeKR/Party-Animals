@@ -1,4 +1,9 @@
-﻿  Giraffe.cpp
-z:\year 3\g53gra-project\g53gra.framework\code\objects\animals\giraffe.cpp(82): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+﻿  DanceFloor.cpp
+z:\year 3\g53gra-project\g53gra.framework\code\objects\dj objects\dancefloor.cpp(37): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+z:\year 3\g53gra-project\g53gra.framework\code\objects\dj objects\dancefloor.cpp(39): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+z:\year 3\g53gra-project\g53gra.framework\code\objects\dj objects\dancefloor.cpp(41): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+z:\year 3\g53gra-project\g53gra.framework\code\objects\dj objects\dancefloor.cpp(43): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+  MyScene.cpp
+  Generating Code...
   G53GRA.Framework.vcxproj -> Z:\Year 3\G53GRA-Project\Debug\G53GRA.Framework.exe
   G53GRA.Framework.vcxproj -> Z:\Year 3\G53GRA-Project\Debug\G53GRA.Framework.pdb (Partial PDB)
