@@ -34,14 +34,14 @@ void MyScene::Initialise()
 	sun->position(500, 0, 0);
 	sun->size(10, 10, 10);
 
-	//AddObjectToScene(sun);
+	AddObjectToScene(sun);
 	
 	DisplayableObject* moon = new Moon();
 
 	moon->position(500, 0, 0);
 	moon->size(10, 10, 10);
 
-	//AddObjectToScene(moon);
+	AddObjectToScene(moon);
 	
 	Giraffe* giraffe = new Giraffe();
 

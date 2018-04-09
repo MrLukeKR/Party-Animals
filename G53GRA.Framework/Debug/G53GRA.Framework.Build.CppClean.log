@@ -6,6 +6,7 @@ z:\year 3\g53gra-project\g53gra.framework\debug\moon.obj
 z:\year 3\g53gra-project\g53gra.framework\debug\sun.obj
 z:\year 3\g53gra-project\g53gra.framework\debug\discolight.obj
 z:\year 3\g53gra-project\g53gra.framework\debug\djdecks.obj
+z:\year 3\g53gra-project\g53gra.framework\debug\elephant.obj
 z:\year 3\g53gra-project\g53gra.framework\debug\engine.obj
 z:\year 3\g53gra-project\g53gra.framework\debug\scene.obj
 z:\year 3\g53gra-project\g53gra.framework\debug\camera.obj
@@ -16,13 +17,41 @@ z:\year 3\g53gra-project\g53gra.framework\debug\terrain.obj
 z:\year 3\g53gra-project\g53gra.framework\debug\giraffe.obj
 z:\year 3\g53gra-project\g53gra.framework\debug\speaker.obj
 z:\year 3\g53gra-project\g53gra.framework\debug\scaffolding.obj
-z:\year 3\g53gra-project\g53gra.framework\debug\elephant.obj
+z:\year 3\g53gra-project\g53gra.framework\debug\dancefloor.obj
 z:\year 3\g53gra-project\debug\g53gra.framework.ilk
 z:\year 3\g53gra-project\debug\g53gra.framework.exe
 z:\year 3\g53gra-project\debug\g53gra.framework.pdb
-z:\year 3\g53gra-project\g53gra.framework\debug\g53gra.framework.tlog\cl.command.1.tlog
-z:\year 3\g53gra-project\g53gra.framework\debug\g53gra.framework.tlog\cl.read.1.tlog
-z:\year 3\g53gra-project\g53gra.framework\debug\g53gra.framework.tlog\cl.write.1.tlog
-z:\year 3\g53gra-project\g53gra.framework\debug\g53gra.framework.tlog\link.command.1.tlog
-z:\year 3\g53gra-project\g53gra.framework\debug\g53gra.framework.tlog\link.read.1.tlog
-z:\year 3\g53gra-project\g53gra.framework\debug\g53gra.framework.tlog\link.write.1.tlog
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\camera.obj
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\dancefloor.obj
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\discolight.obj
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\djdecks.obj
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\elephant.obj
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\engine.obj
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\giraffe.obj
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\main.obj
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\moon.obj
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\myscene.obj
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\scaffolding.obj
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\scene.obj
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\skybox.obj
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\speaker.obj
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\sun.obj
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\terrain.obj
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\texture.obj
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\tree.obj
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\vc141.idb
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\vc141.pdb
+c:\users\luke\source\repos\g53gra-project\debug\g53gra.framework.pdb
+c:\users\luke\source\repos\g53gra-project\debug\g53gra.framework.exe
+c:\users\luke\source\repos\g53gra-project\debug\g53gra.framework.ilk
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\g53gra.framework.tlog\cl.command.1.tlog
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\g53gra.framework.tlog\cl.read.1.tlog
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\g53gra.framework.tlog\cl.write.1.tlog
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\g53gra.framework.tlog\link-vctip.delete.110.tlog
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\g53gra.framework.tlog\link-vctip.delete.12.tlog
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\g53gra.framework.tlog\link-vctip.delete.42.tlog
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\g53gra.framework.tlog\link-vctip.delete.76.tlog
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\g53gra.framework.tlog\link-vctip.read.134.tlog
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\g53gra.framework.tlog\link.command.1.tlog
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\g53gra.framework.tlog\link.read.1.tlog
+c:\users\luke\source\repos\g53gra-project\g53gra.framework\debug\g53gra.framework.tlog\link.write.1.tlog

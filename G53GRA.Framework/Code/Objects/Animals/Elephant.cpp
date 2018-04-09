@@ -18,6 +18,8 @@ void Elephant::Display() {
 	glRotatef(rotation[1], 0.f, 1.f, 0.f);
 	glRotatef(rotation[2], 0.f, 0.f, 1.f);
 
+	glColor3f(0.3f, 0.3f, 0.3f);
+
 	drawBody();
 
 	glPushMatrix();
@@ -36,7 +38,8 @@ void Elephant::Display() {
 	glTranslatef(-6, -7, -4);
 	drawLeg();
 	glPopMatrix();
-
+	glTranslatef(9, 5, 0);
+	drawHead();
 	glPopAttrib();
 	glPopMatrix();
 }
@@ -50,6 +53,26 @@ void Elephant::drawBody() {
 void Elephant::drawLeg() {
 	glPushMatrix();
 	box(1, 3, 1);
+	glPopMatrix();
+}
+
+void Elephant::drawHead() {
+	glPushMatrix();
+	box(3, 3, 3);
+	glPopMatrix();
+	glPushMatrix();
+	glTranslatef(4, 0, 0);
+	glColor3f(0.9f, 0.9f, 0.9f);
+	glRotatef(-45, 0, 0, 1);
+	glTranslatef(0, -0.5f, 1.5f);
+	glPushMatrix();
+	box(2, 0.5f, 0.5f);
+	glPopMatrix();
+	glPushMatrix();
+	glTranslatef(0, 0, -1.5f);
+	box(2, 0.5f, 0.5f);
+	glPopMatrix();
+	glColor3f(0.3f, 0.3f, 0.3f);
 	glPopMatrix();
 }
 
