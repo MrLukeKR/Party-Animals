@@ -1,5 +1,7 @@
 #include "Elephant.h"
 
+#define DEBUG 0
+
 Elephant::Elephant()
 {
 }
@@ -56,23 +58,66 @@ void Elephant::drawLeg() {
 	glPopMatrix();
 }
 
+void Elephant::drawEyes() {
+	glColor3f(0, 0, 0);
+	glPushMatrix();
+	glPushMatrix();
+	glTranslatef(3,1,1.5f);
+	box(0.5f, 0.5f, 0.5f);
+	glPopMatrix();
+	glPushMatrix();
+	glTranslatef(3, 1, -1.5f);
+	box(0.5f, 0.5f, 0.5f);
+	glPopMatrix();
+	glPopMatrix();
+}
+
 void Elephant::drawHead() {
 	glPushMatrix();
 	box(3, 3, 3);
 	glPopMatrix();
 	glPushMatrix();
 	glTranslatef(4, 0, 0);
-	glColor3f(0.9f, 0.9f, 0.9f);
-	glRotatef(-45, 0, 0, 1);
-	glTranslatef(0, -0.5f, 1.5f);
 	glPushMatrix();
-	box(2, 0.5f, 0.5f);
+	drawTusks();
 	glPopMatrix();
 	glPushMatrix();
-	glTranslatef(0, 0, -1.5f);
-	box(2, 0.5f, 0.5f);
+	drawTrunk();
 	glPopMatrix();
+	glPushMatrix();
+	drawEyes();
+	glPopMatrix();
+}
+
+void Elephant::drawTrunk() {
 	glColor3f(0.3f, 0.3f, 0.3f);
+	glPushMatrix();
+	glTranslatef(4.15f, -4.5f, 0);
+	glRotatef(-65, 0, 0, 1);
+	box(4, 0.75f, 0.75f);
+	glPopMatrix();
+}
+
+void Elephant::drawTusks() {
+	glColor3f(0.9f, 0.9f, 0.9f);
+	glPushMatrix();
+	glTranslatef(0, -1.5f, 2);
+	glRotatef(-45, 0, 0, 1);
+	glRotatef(-25, 0, 1, 0);
+	box(2, 0.5f, 0.5f);
+	glPopMatrix();
+	glPushMatrix();
+	glTranslatef(0, -1.5f, -2);
+	glRotatef(-45, 0, 0, 1);
+	glRotatef(25, 0, 1, 0);
+	box(2, 0.5f, 0.5f);
+	glPopMatrix();
+	glPopMatrix();
+}
+
+void Elephant::drawEars() {
+	glPushMatrix();
+
 	glPopMatrix();
 }
 
@@ -83,7 +128,7 @@ void Elephant::Update(const double& dT) {
 void Elephant::box(float x, float y, float z) {
 	glScalef(x, y, z);
 	//FRONT FACE
-	glBegin(GL_QUADS);
+	glBegin(DEBUG ? GL_LINE_LOOP : GL_QUADS);
 	glNormal3f(0, 0, 1);
 	glTexCoord2d(1, 1);
 	glVertex3f(1, 1, 1); //RIGHT-TOP-FRONT
@@ -96,7 +141,7 @@ void Elephant::box(float x, float y, float z) {
 	glEnd();
 
 	//LEFT FACE
-	glBegin(GL_QUADS);
+	glBegin(DEBUG ? GL_LINE_LOOP : GL_QUADS);
 	glNormal3f(-1, 0, 0);
 	glTexCoord2d(1, 1);
 	glVertex3f(-1, 1, 1); //LEFT-TOP-FRONT
@@ -109,7 +154,7 @@ void Elephant::box(float x, float y, float z) {
 	glEnd();
 
 	//BACK FACE
-	glBegin(GL_QUADS);
+	glBegin(DEBUG ? GL_LINE_LOOP : GL_QUADS);
 	glNormal3f(0, 0, -1);
 	glTexCoord2d(1, 1);
 	glVertex3f(-1, 1, -1); //LEFT-TOP-BACK	
@@ -122,7 +167,7 @@ void Elephant::box(float x, float y, float z) {
 	glEnd();
 
 	//RIGHT FACE
-	glBegin(GL_QUADS);
+	glBegin(DEBUG ? GL_LINE_LOOP : GL_QUADS);
 	glNormal3f(-1, 0, 0);
 	glTexCoord2d(1, 1);
 	glVertex3f(1, 1, -1); //RIGHT-TOP-BACK
@@ -135,7 +180,7 @@ void Elephant::box(float x, float y, float z) {
 	glEnd();
 
 	//TOP FACE
-	glBegin(GL_QUADS);
+	glBegin(DEBUG ? GL_LINE_LOOP : GL_QUADS);
 	glNormal3f(0, 1, 0);
 	glTexCoord2d(1, 1);
 	glVertex3f(1, 1, -1); //RIGHT-TOP-BACK
@@ -148,7 +193,7 @@ void Elephant::box(float x, float y, float z) {
 	glEnd();
 
 	//BOTTOM FACE
-	glBegin(GL_QUADS);
+	glBegin(DEBUG ? GL_LINE_LOOP : GL_QUADS);
 	glNormal3f(0, 1, 0);
 	glTexCoord2d(1, 1);
 	glVertex3f(1, -1, 1); //RIGHT-BOTTOM-FRONT

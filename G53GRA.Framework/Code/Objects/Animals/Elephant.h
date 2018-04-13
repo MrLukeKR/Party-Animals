@@ -16,5 +16,9 @@ private:
 	void box(float x, float y, float z);
 	void drawBody();
 	void drawLeg();
+	void drawTrunk();
+	void drawEyes();
+	void drawEars();
 	void drawHead();
+	void drawTusks();
 };
