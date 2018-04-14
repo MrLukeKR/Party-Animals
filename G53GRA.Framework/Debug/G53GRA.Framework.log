@@ -1,5 +1,1 @@
-﻿  MyScene.cpp
-e:\source\repos\g53gra-project\g53gra.framework\code\myscene.cpp(35): warning C4129: 'M': unrecognized character escape sequence
-e:\source\repos\g53gra-project\g53gra.framework\code\myscene.cpp(35): warning C4129: '*': unrecognized character escape sequence
-Debug\Box.obj : warning LNK4042: object specified more than once; extras ignored
-  G53GRA.Framework.vcxproj -> E:\source\repos\G53GRA-Project\Debug\G53GRA.Framework.exe
+﻿
