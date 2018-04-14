@@ -12,7 +12,6 @@ public:
 
 private:
 	float value;
-	void drawLight();
 	GLfloat light_position[4] = { pos[0],pos[1],pos[2], 1 };
 	GLfloat light_diffuse[4] = { 1, 1, 1, 1.0 };
 	GLfloat light_direction[3] = { -1, -1, -1 };

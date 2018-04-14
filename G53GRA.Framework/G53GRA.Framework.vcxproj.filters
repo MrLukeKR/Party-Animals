@@ -75,6 +75,15 @@
     <ClCompile Include="Code\Objects\Box.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Code\SpecialFX\Smoke.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\SpecialFX\Confetti.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Objects\Animals\Monkey.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\Engine\Engine.h">
@@ -140,10 +149,22 @@
     <ClInclude Include="Code\Objects\DJ Objects\DanceFloor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Code\SpecialFX\Smoke.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\SpecialFX\Confetti.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Objects\Animals\Monkey.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Textures\skybox_texture.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Music\The Lion King - Circle Of Life Trap Remix.mp3" />
   </ItemGroup>
 </Project>

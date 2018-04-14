@@ -9,14 +9,17 @@
   <ItemGroup>
     <ClCompile Include="Code\main.cpp" />
     <ClCompile Include="Code\MyScene.cpp" />
+    <ClCompile Include="Code\Objects\Animals\Monkey.cpp" />
     <ClCompile Include="Code\Objects\Box.cpp" />
     <ClCompile Include="Code\Objects\Box.h" />
+    <ClCompile Include="Code\SpecialFX\Confetti.cpp" />
     <ClCompile Include="Code\Objects\Lights\Moon.cpp" />
     <ClCompile Include="Code\Objects\Lights\Sun.cpp" />
     <ClCompile Include="Code\Objects\Lights\DiscoLight.cpp" />
     <ClCompile Include="Code\Objects\DJ Objects\DJDecks.cpp" />
     <ClCompile Include="Code\Objects\Animals\Elephant.cpp" />
     <ClCompile Include="Code\Objects\DJ Objects\DanceFloor.cpp" />
+    <ClCompile Include="Code\SpecialFX\Smoke.cpp" />
     <ClCompile Include="Framework\Engine\Engine.cpp" />
     <ClCompile Include="Framework\Engine\Scene.cpp" />
     <ClCompile Include="Framework\Utility\Camera.cpp" />
@@ -30,11 +33,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\MyScene.h" />
+    <ClInclude Include="Code\Objects\Animals\Monkey.h" />
+    <ClInclude Include="Code\SpecialFX\Confetti.h" />
     <ClInclude Include="Code\Objects\Lights\Moon.h" />
     <ClInclude Include="Code\Objects\Lights\DiscoLight.h" />
     <ClInclude Include="Code\Objects\DJ Objects\DJDecks.h" />
     <ClInclude Include="Code\Objects\Animals\Elephant.h" />
     <ClInclude Include="Code\Objects\DJ Objects\DanceFloor.h" />
+    <ClInclude Include="Code\SpecialFX\Smoke.h" />
     <ClInclude Include="Framework\Engine\Engine.h" />
     <ClInclude Include="Framework\Engine\Scene.h" />
     <ClInclude Include="Framework\Interface\Animation.h" />
@@ -53,6 +59,9 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Textures\skybox_texture.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Music\The Lion King - Circle Of Life Trap Remix.mp3" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{CE3A8304-475E-425E-BA11-FDAA6293C905}</ProjectGuid>

@@ -1,4 +1,5 @@
 #include "DiscoLight.h"
+#include "Objects\Box.h"
 
 DiscoLight::DiscoLight(GLfloat dirX, GLfloat dirY, GLfloat dirZ, GLenum light, float colorSeed) : lightSource(light), light_direction{ dirX, dirY, dirZ }, value(colorSeed)
 {
@@ -19,8 +20,8 @@ void DiscoLight::Display() {
 	glRotatef(rotation[0], 1.f, 0.f, 0.f);
 	glRotatef(rotation[1], 0.f, 1.f, 0.f);
 	glRotatef(rotation[2], 0.f, 0.f, 1.f);
-
-	drawLight();
+	glColor3f(light_ambient[0], light_ambient[1], light_ambient[2]);
+	Box::box(1,1,1);
 
 	glPopAttrib();
 	glPopMatrix();
@@ -34,86 +35,6 @@ void DiscoLight::Display() {
 	glLightfv(lightSource, GL_POSITION, light_position);
 }
 
-void DiscoLight::drawLight() {
-	//FRONT FACE
-	glBegin(GL_QUADS);
-	glNormal3f(0, 0, 1);
-	glTexCoord2d(1, 1);
-	glVertex3f(1, 1, 1); //RIGHT-TOP-FRONT
-	glTexCoord2d(0, 1);
-	glVertex3f(-1, 1, 1); //LEFT-TOP-FRONT
-	glTexCoord2d(0, 0);
-	glVertex3f(-1, -1, 1); //LEFT-BOTTOM-FRONT
-	glTexCoord2d(1, 0);
-	glVertex3f(1, -1, 1); //RIGHT-BOTTOM-FRONT
-	glEnd();
-
-	//LEFT FACE
-	glBegin(GL_QUADS);
-	glNormal3f(-1, 0, 0);
-	glTexCoord2d(1, 1);
-	glVertex3f(-1, 1, 1); //LEFT-TOP-FRONT
-	glTexCoord2d(0, 1);
-	glVertex3f(-1, 1, -1); //LEFT-TOP-BACK
-	glTexCoord2d(0, 0);
-	glVertex3f(-1, -1, -1); //LEFT-BOTTOM-BACK
-	glTexCoord2d(1, 0);
-	glVertex3f(-1, -1, 1); //LEFT-BOTTOM-FRONT
-	glEnd();
-
-	//BACK FACE
-	glBegin(GL_QUADS);
-	glNormal3f(0, 0, -1);
-	glTexCoord2d(1, 1);
-	glVertex3f(-1, 1, -1); //LEFT-TOP-BACK	
-	glTexCoord2d(0, 1);
-	glVertex3f(1, 1, -1); //RIGHT-TOP-BACK
-	glTexCoord2d(0, 0);
-	glVertex3f(1, -1, -1); //RIGHT-BOTTOM-BACK
-	glTexCoord2d(1, 0);
-	glVertex3f(-1, -1, -1); //LEFT-BOTTOM-BACK
-	glEnd();
-
-	//RIGHT FACE
-	glBegin(GL_QUADS);
-	glNormal3f(-1, 0, 0);
-	glTexCoord2d(1, 1);
-	glVertex3f(1, 1, -1); //RIGHT-TOP-BACK
-	glTexCoord2d(0, 1);
-	glVertex3f(1, 1, 1); //RIGHT-TOP-FRONT
-	glTexCoord2d(0, 0);
-	glVertex3f(1, -1, 1); //RIGHT-BOTTOM-FRONT
-	glTexCoord2d(1, 0);
-	glVertex3f(1, -1, -1); //RIGHT-BOTTOM-BACK
-	glEnd();
-
-	//TOP FACE
-	glBegin(GL_QUADS);
-	glNormal3f(0, 1, 0);
-	glTexCoord2d(1, 1);
-	glVertex3f(1, 1, -1); //RIGHT-TOP-BACK
-	glTexCoord2d(0, 1);
-	glVertex3f(-1, 1, -1); //LEFT-TOP-BACK
-	glTexCoord2d(0, 0);
-	glVertex3f(-1, 1, 1); //LEFT-TOP-FRONT
-	glTexCoord2d(1, 0);
-	glVertex3f(1, 1, 1); //RIGHT-TOP-FRONT
-	glEnd();
-
-	//BOTTOM FACE
-	glBegin(GL_QUADS);
-	glNormal3f(0, 1, 0);
-	glTexCoord2d(1, 1);
-	glVertex3f(1, -1, 1); //RIGHT-BOTTOM-FRONT
-	glTexCoord2d(0, 1);
-	glVertex3f(-1, -1, 1); //LEFT-BOTTOM-FRONT
-	glTexCoord2d(0, 0);
-	glVertex3f(-1, -1, -1); //LEFT-BOTTOM-BACK
-	glTexCoord2d(1, 0);
-	glVertex3f(1, -1, -1); //RIGHT-BOTTOM-BACK
-	glEnd();
-}
-
 void DiscoLight::Update(const double& deltaTime) {
 	light_position[0] = pos[0];
 	light_position[1] = pos[1];
@@ -125,7 +46,7 @@ void DiscoLight::Update(const double& deltaTime) {
 		light_ambient[i] = ((int)value >> i) & 1;
 	}
 
-	value += 0.025f;
+	value += 0.075f;
 	if (value == 7)
 		value = 1;
 }

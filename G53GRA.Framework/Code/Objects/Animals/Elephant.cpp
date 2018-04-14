@@ -86,6 +86,9 @@ void Elephant::drawHead() {
 	glPushMatrix();
 	drawEyes();
 	glPopMatrix();
+	glPushMatrix();
+	drawEars();
+	glPopMatrix();
 }
 
 void Elephant::drawTrunk() {
@@ -115,11 +118,19 @@ void Elephant::drawTusks() {
 }
 
 void Elephant::drawEars() {
+	glColor3f(0.3f, 0.3f, 0.3f);
 	glPushMatrix();
-
+	glTranslatef(0,3,3);
+	glRotatef(-80,0,1,0);
+	Box::box(0.1f, 2, 2);
+	glPopMatrix();
+	glPushMatrix();
+	glTranslatef(0, 3, -3);
+	glRotatef(80, 0, 1, 0);
+	Box::box(0.1f, 2, 2);
 	glPopMatrix();
 }
 
 void Elephant::Update(const double& dT) {
 
-}
+} 

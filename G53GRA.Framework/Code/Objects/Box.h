@@ -1,3 +1,4 @@
+#pragma once
 #include "DisplayableObject.h"
 
 class Box : public DisplayableObject {
