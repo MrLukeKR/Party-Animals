@@ -1,6 +1,5 @@
 #include "Giraffe.h"
-
-
+#include "Objects\Box.h"
 
 Giraffe::Giraffe()
 {
@@ -45,7 +44,6 @@ void Giraffe::drawGiraffe() {
 	glTranslatef(0.f, neckHeight, 0.f);
 	glPushMatrix();
 
-	glRotatef(headAngle, 0, 0, 1.f);
 	drawHead();
 	glPopMatrix();
 	glPopMatrix();
@@ -57,7 +55,39 @@ void Giraffe::drawTail() {
 	glTranslatef(0.35f, -0.25f, 0.f);
 	glRotatef(-10, 0, 0, 1);
 	glColor3f(1.f, 1.f, 0.f);
-	box(0.05f, 0.5f, 0.05f, giraffeTex);
+	Box::box(0.05f, 0.5f, 0.05f, giraffeTex);
+	glPopMatrix();
+}
+
+void Giraffe::drawEyes() {
+	glColor3f(0, 0, 0);
+	glPushMatrix();
+	glTranslatef(0, 0, -0.35f);
+	Box::box(0.1f, 0.1f, 0.1f);
+	glPopMatrix();
+	glPushMatrix();
+	glTranslatef(0, 0, 0.35f);
+	Box::box(0.1f, 0.1f, 0.1f);
+	glPopMatrix();
+}
+
+void Giraffe::drawEars() {
+	glColor3f(1, 1, 1);
+	glPushMatrix();
+	glTranslatef(-0.5f,-0.25f,-0.15f);
+	Box::box(0.2f, 0.1f, 0.1f, giraffeTex);
+	glPopMatrix();
+	glPushMatrix();
+	glTranslatef(-0.5f, -0.25f, 0.15f);
+	Box::box(0.2f, 0.1f, 0.1f, giraffeTex);
+	glPopMatrix();
+}
+
+void Giraffe::drawTongue() {
+	glColor3f(1, 0, 0);
+	glPushMatrix();
+	glTranslatef(0.25f, 0.5f, 0);
+	Box::box(0.1f, .05f, 0.1f);
 	glPopMatrix();
 }
 
@@ -126,120 +156,36 @@ void Giraffe::Update(const double& dT) {
 }
 
 void Giraffe::drawHead() {
+	glPushMatrix();
+	glRotatef(headAngle, 0, 0, 1.f);
 	glTranslatef(0.f, 0.3f, 0.f);
-	box(0.3f, 0.5f, 0.3f, giraffeTex);
+	Box::box(0.3f, 0.5f, 0.3f, giraffeTex);
+	glPushMatrix();
+	drawEyes();
+	glPopMatrix();
+	glPushMatrix();
+	drawTongue();
+	glPopMatrix();
+	glPushMatrix();
+	drawEars();
+	glPopMatrix();
+	glPopMatrix();
 }
 
 void Giraffe::drawBody() {
 	//Giraffe's Main Body
 	glColor3f(1.f, 1.f, 0.f);
-	box(1.11f, .5f, .65f, giraffeTex);
+	Box::box(1.11f, .5f, .65f, giraffeTex);
 }
 
 void Giraffe::drawNeck() {
 	glTranslatef(0.f, 2.225f, 0.f);
 	glColor3f(1.f, 1.f, 0.f);
-	box(0.2f, neckHeight, 0.2f, giraffeTex);
+	Box::box(0.2f, neckHeight, 0.2f, giraffeTex);
 }
 
 void Giraffe::drawLeg() {
 	glTranslatef(0.f, -1.f, 0.f);
 	glColor3f(1.f, 1.f, 0.f);
-	box(0.2f, 1, 0.2f, giraffeTex);
-}
-
-void Giraffe::box(float sx, float sy, float sz, GLuint texID)
-{
-	glPushMatrix();
-	glScalef(sx, sy, sz);                               // scale solid cube by size parameters
-	
-	glEnable(GL_TEXTURE_2D);
-	glEnable(GL_COLOR_MATERIAL);
-	//glDisable(GL_LIGHTING);
-
-	glBindTexture(GL_TEXTURE_2D, texID);
-
-	//FRONT FACE
-	glBegin(GL_QUADS);
-	glNormal3f(0, 0, 1);
-		glTexCoord2d(1, 1);
-			glVertex3f(1, 1, 1); //RIGHT-TOP-FRONT
-		glTexCoord2d(0, 1);
-			glVertex3f(-1, 1, 1); //LEFT-TOP-FRONT
-		glTexCoord2d(0, 0);
-			glVertex3f(-1, -1, 1); //LEFT-BOTTOM-FRONT
-		glTexCoord2d(1, 0);
-			glVertex3f(1, -1, 1); //RIGHT-BOTTOM-FRONT
-	glEnd();
-
-	//LEFT FACE
-	glBegin(GL_QUADS);
-	glNormal3f(-1, 0, 0);
-		glTexCoord2d(1, 1);
-			glVertex3f(-1, 1, 1); //LEFT-TOP-FRONT
-		glTexCoord2d(0, 1);
-			glVertex3f(-1,1,-1); //LEFT-TOP-BACK
-		glTexCoord2d(0, 0);
-			glVertex3f(-1, -1, -1); //LEFT-BOTTOM-BACK
-		glTexCoord2d(1, 0);
-			glVertex3f(-1, -1, 1); //LEFT-BOTTOM-FRONT
-	glEnd();
-
-	//BACK FACE
-	glBegin(GL_QUADS);
-	glNormal3f(0, 0, -1);
-		glTexCoord2d(1, 1);
-			glVertex3f(-1, 1, -1); //LEFT-TOP-BACK	
-		glTexCoord2d(0, 1);
-			glVertex3f(1, 1, -1); //RIGHT-TOP-BACK
-		glTexCoord2d(0, 0);
-			glVertex3f(1, -1, -1); //RIGHT-BOTTOM-BACK
-		glTexCoord2d(1, 0);
-			glVertex3f(-1, -1, -1); //LEFT-BOTTOM-BACK
-	glEnd();
-
-	//RIGHT FACE
-	glBegin(GL_QUADS);
-	glNormal3f(-1, 0, 0);
-		glTexCoord2d(1, 1);
-			glVertex3f(1, 1, -1); //RIGHT-TOP-BACK
-		glTexCoord2d(0, 1);
-			glVertex3f(1, 1, 1); //RIGHT-TOP-FRONT
-		glTexCoord2d(0, 0);
-			glVertex3f(1, -1, 1); //RIGHT-BOTTOM-FRONT
-		glTexCoord2d(1, 0);
-			glVertex3f(1, -1, -1); //RIGHT-BOTTOM-BACK
-	glEnd();
-
-	//TOP FACE
-	glBegin(GL_QUADS);
-	glNormal3f(0, 1, 0);
-		glTexCoord2d(1, 1);
-			glVertex3f(1, 1, -1); //RIGHT-TOP-BACK
-		glTexCoord2d(0, 1);
-			glVertex3f(-1, 1, -1); //LEFT-TOP-BACK
-		glTexCoord2d(0, 0);
-			glVertex3f(-1, 1, 1); //LEFT-TOP-FRONT
-		glTexCoord2d(1, 0);
-			glVertex3f(1, 1, 1); //RIGHT-TOP-FRONT
-	glEnd();
-
-	//BOTTOM FACE
-	glBegin(GL_QUADS);
-	glNormal3f(0, 1, 0);
-		glTexCoord2d(1, 1);
-			glVertex3f(1, -1, 1); //RIGHT-BOTTOM-FRONT
-		glTexCoord2d(0, 1);
-			glVertex3f(-1, -1, 1); //LEFT-BOTTOM-FRONT
-		glTexCoord2d(0, 0);
-			glVertex3f(-1, -1, -1); //LEFT-BOTTOM-BACK
-		glTexCoord2d(1, 0);
-			glVertex3f(1, -1, -1); //RIGHT-BOTTOM-BACK
-	glEnd();
-
-	glDisable(GL_COLOR_MATERIAL);
-	glBindTexture(GL_TEXTURE_2D, NULL);
-	glDisable(GL_TEXTURE_2D);
-														//glutSolidCube(1.f);
-	glPopMatrix();
+	Box::box(0.2f, 1, 0.2f, giraffeTex);
 }

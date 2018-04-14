@@ -24,7 +24,9 @@ private:
 	void drawNeck();
 	void drawHead();
 	void drawTail();
-	void box(float sx, float sy, float sz, GLuint texID);
+	void drawEyes();
+	void drawTongue();
+	void drawEars();
 
 	GLuint giraffeTex;
 };

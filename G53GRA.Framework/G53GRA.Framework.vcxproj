@@ -9,6 +9,8 @@
   <ItemGroup>
     <ClCompile Include="Code\main.cpp" />
     <ClCompile Include="Code\MyScene.cpp" />
+    <ClCompile Include="Code\Objects\Box.cpp" />
+    <ClCompile Include="Code\Objects\Box.h" />
     <ClCompile Include="Code\Objects\Lights\Moon.cpp" />
     <ClCompile Include="Code\Objects\Lights\Sun.cpp" />
     <ClCompile Include="Code\Objects\Lights\DiscoLight.cpp" />

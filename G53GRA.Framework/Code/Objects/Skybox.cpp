@@ -20,7 +20,7 @@ void Skybox::Display() {
 
 	glEnable(GL_TEXTURE_2D);
 	glEnable(GL_COLOR_MATERIAL);
-	glDisable(GL_LIGHTING);
+	//glDisable(GL_LIGHTING);
 	glBindTexture(GL_TEXTURE_2D, textureID[0]);
 
 	glBegin(GL_QUADS);
@@ -110,7 +110,7 @@ void Skybox::Display() {
 	glDisable(GL_COLOR_MATERIAL);
 	glBindTexture(GL_TEXTURE_2D, NULL);
 	glDisable(GL_TEXTURE_2D);
-	glEnable(GL_LIGHTING);
+	//glEnable(GL_LIGHTING);
 
 	glPopAttrib();
 	glPopMatrix();

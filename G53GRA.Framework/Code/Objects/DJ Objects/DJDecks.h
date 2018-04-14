@@ -12,6 +12,7 @@ private:
 	void drawPodium();
 	void drawTurntable();
 	void drawVinyl();
-	void box(float x, float y, float z);
+
+	GLuint deskTex;
 };
 
