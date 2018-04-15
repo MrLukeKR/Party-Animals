@@ -26,7 +26,7 @@ void Sun::Display() {
 
 	glColor3f(color[0], color[1], color[2]);
 
-	glutSolidSphere(scale[0],20,20);	
+	glutSolidSphere(scale[0],10,10);	
 
 	glPopMatrix();
 	glPopMatrix();

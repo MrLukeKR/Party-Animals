@@ -5,6 +5,7 @@
 #include "Objects\Lights\Moon.h"
 #include "Objects\Animals\Giraffe.h"
 #include "Objects\Animals\Elephant.h"
+#include "Objects\Animals\Monkey.h"
 #include "Objects\Terrain.h"
 #include "Objects\Lights\DiscoLight.h"
 #include "Objects\DJ Objects\Speaker.h"
@@ -129,6 +130,12 @@ void MyScene::Initialise()
 		AddObjectToScene(smoke);
 	}
 	*/
+
+	Monkey* djMonkey= new Monkey();
+	djMonkey->position(105, 0, 900);
+	djMonkey->size(1, 1, 1);
+
+	AddObjectToScene(djMonkey);
 }
 
 void MyScene::Projection()

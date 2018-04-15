@@ -2,6 +2,7 @@
 
 Speaker::Speaker()
 {
+	texID = Scene::GetTexture("./Textures/speaker.bmp");
 }
 
 
@@ -37,11 +38,11 @@ void Speaker::drawSpeaker() {
 
 	glPushMatrix();
 
-	//glEnable(GL_TEXTURE_2D);
-	//glEnable(GL_COLOR_MATERIAL);
+	glEnable(GL_TEXTURE_2D);
+	glEnable(GL_COLOR_MATERIAL);
 	//glDisable(GL_LIGHTING);
 
-	//glBindTexture(GL_TEXTURE_2D, texID);
+	glBindTexture(GL_TEXTURE_2D, texID);
 
 		glPushMatrix();
 
@@ -149,9 +150,9 @@ void Speaker::drawSpeaker() {
 		glRotatef(45, 1, 0, 0);
 		gluCylinder(gluNewQuadric(), .25f, .25f, 5, 5, 5);
 		glPopMatrix();
-	//glDisable(GL_COLOR_MATERIAL);
-	//glBindTexture(GL_TEXTURE_2D, NULL);
-	//glDisable(GL_TEXTURE_2D);
+	glDisable(GL_COLOR_MATERIAL);
+	glBindTexture(GL_TEXTURE_2D, NULL);
+	glDisable(GL_TEXTURE_2D);
 	glPopMatrix();
 
 

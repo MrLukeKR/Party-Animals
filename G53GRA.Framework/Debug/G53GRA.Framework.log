@@ -1,1 +1,9 @@
-﻿
+﻿  MyScene.cpp
+  Giraffe.cpp
+e:\source\repos\g53gra-project\g53gra.framework\code\objects\animals\giraffe.cpp(112): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Monkey.cpp
+e:\source\repos\g53gra-project\g53gra.framework\code\objects\animals\monkey.cpp(121): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Speaker.cpp
+e:\source\repos\g53gra-project\g53gra.framework\code\objects\dj objects\speaker.cpp(30): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+  G53GRA.Framework.vcxproj -> E:\source\repos\G53GRA-Project\Debug\G53GRA.Framework.exe

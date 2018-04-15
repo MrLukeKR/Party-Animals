@@ -12,6 +12,7 @@ public:
 	void Update(const double& time);
 
 private:
+	GLuint texID;
 	void drawSpeaker();
 	float speakerPump = 1;
 	float currentAnimationTime = 0;
