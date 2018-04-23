@@ -14,6 +14,7 @@
 #include "Objects\DJ Objects\DanceFloor.h"
 #include "SpecialFX\Confetti.h"
 #include "SpecialFX\Smoke.h"
+#include "Objects\Animals\Snake.h"
 
 MyScene::MyScene(int argc, char** argv, const char *title, const int& windowWidth, const int& windowHeight)
 	: Scene(argc, argv, title, windowWidth, windowHeight)
@@ -136,6 +137,12 @@ void MyScene::Initialise()
 	djMonkey->size(1, 1, 1);
 
 	AddObjectToScene(djMonkey);
+
+	Snake* snake = new Snake();
+	snake->position(100, 12, 882.5f);
+	snake->size(1, 1, 1);
+	
+	AddObjectToScene(snake);
 }
 
 void MyScene::Projection()
