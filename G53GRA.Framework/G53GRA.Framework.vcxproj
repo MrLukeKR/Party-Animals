@@ -10,6 +10,7 @@
     <ClCompile Include="Code\main.cpp" />
     <ClCompile Include="Code\MyScene.cpp" />
     <ClCompile Include="Code\Objects\Animals\Monkey.cpp" />
+    <ClCompile Include="Code\Objects\Animals\Snake.cpp" />
     <ClCompile Include="Code\Objects\Box.cpp" />
     <ClCompile Include="Code\Objects\Box.h" />
     <ClCompile Include="Code\SpecialFX\Confetti.cpp" />
@@ -34,6 +35,7 @@
   <ItemGroup>
     <ClInclude Include="Code\MyScene.h" />
     <ClInclude Include="Code\Objects\Animals\Monkey.h" />
+    <ClInclude Include="Code\Objects\Animals\Snake.h" />
     <ClInclude Include="Code\SpecialFX\Confetti.h" />
     <ClInclude Include="Code\Objects\Lights\Moon.h" />
     <ClInclude Include="Code\Objects\Lights\DiscoLight.h" />
