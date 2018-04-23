@@ -15,6 +15,7 @@
 #include "SpecialFX\Confetti.h"
 #include "SpecialFX\Smoke.h"
 #include "Objects\Animals\Snake.h"
+#include "Objects\DJ Objects\Screen.h"
 
 MyScene::MyScene(int argc, char** argv, const char *title, const int& windowWidth, const int& windowHeight)
 	: Scene(argc, argv, title, windowWidth, windowHeight)
@@ -143,6 +144,19 @@ void MyScene::Initialise()
 	snake->size(1, 1, 1);
 	
 	AddObjectToScene(snake);
+
+	Screen* screen1 = new Screen(true);
+	screen1->position(100, 20, 875);
+	screen1->size(1, 1, 1);
+
+	AddObjectToScene(screen1);
+
+
+	Screen* screen2 = new Screen(false);
+	screen2->position(100, 20, 925);
+	screen2->size(1, 1, 1);
+
+	AddObjectToScene(screen2);
 }
 
 void MyScene::Projection()
