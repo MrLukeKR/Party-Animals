@@ -13,7 +13,6 @@
 
 		glEnable(GL_TEXTURE_2D);
 		glEnable(GL_COLOR_MATERIAL);
-		//glDisable(GL_LIGHTING);
 
 		glBindTexture(GL_TEXTURE_2D, texID);
 
@@ -98,6 +97,5 @@
 		glDisable(GL_COLOR_MATERIAL);
 		glBindTexture(GL_TEXTURE_2D, NULL);
 		glDisable(GL_TEXTURE_2D);
-		//glutSolidCube(1.f);
 		glPopMatrix();
 	}

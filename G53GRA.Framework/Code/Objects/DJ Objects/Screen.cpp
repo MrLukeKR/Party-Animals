@@ -30,36 +30,31 @@ void Screen::Display() {
 	glRotatef(rotation[2], 0.f, 0.f, 1.f);
 	
 	glPushMatrix();
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glDisable(GL_LIGHTING);
 	
+	glColor4f(0, 0, 0, 1);
+	Box::box(0.1f, 5, 7.5f);
 	
 	if (invert) glRotatef(180, 0, 1, 0);
 	glBegin(GL_POINTS);
 	
-	
-	for (int i = 0; i < 10000; i++) {
+	for (int i = 0; i < 25000; i++) {
+		if (x < 5.f && y < 7.5f && x > -5.f && y > -7.5f) {
+			glColor4f(red, green, blue, .25f);
+			glVertex3f(invert ? 0.2f : -0.2f, x, y);
+		}
+
 		double dX = BEDHEAD_X;
 		double dY = BEDHEAD_Y;
 
 		x = dX;
 		y = dY;
-
-		if (x < 5.f && y < 7.5f && x > -5.f && y > -7.5f) {
-			glColor3f(red, green, blue);
-			glVertex3f(invert ? 0.1f : -0.1f, x, y);
-		}
 	}
 		
 	glEnd();
 	glPopMatrix();
+
 	glEnable(GL_LIGHTING);
-	glDisable(GL_BLEND);
-
-	glColor3f(0, 0, 0);
-	Box::box(0.1f, 5, 7.5f);
-
 	glPopAttrib();
 	glPopMatrix();
 }
@@ -69,9 +64,9 @@ void Screen::Update(const double& deltaTime) {
 	red = ((col >> 16) & 0xFF) / 256.0f;
 	green = ((col >> 8) & 0xFF) / 256.0f;
 	blue = (col & 0xFF) / 256.0f;
-	a += reverseA ? -0.001f : 0.001f;
-	b += reverseB ? -0.001f : 0.001f;
-	c += reverseC ? -0.001f : 0.001f;
+	a += reverseA ? -0.01f : 0.01f;
+	b += reverseB ? -0.01f : 0.01f;
+	c += reverseC ? -0.01f : 0.01f;
 
 	if (a >= BEDHEAD_MAX) reverseA = true;
 	else if (a <= BEDHEAD_MIN) reverseA = false;

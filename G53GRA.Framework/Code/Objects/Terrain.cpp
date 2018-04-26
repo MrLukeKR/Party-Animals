@@ -23,7 +23,6 @@ void Terrain::Display() {
 	glColor3f(1, 0.871f, 0.678f);
 	glEnable(GL_TEXTURE_2D);
 	glEnable(GL_COLOR_MATERIAL);
-	//glDisable(GL_LIGHTING);
 
 	glBindTexture(GL_TEXTURE_2D, sandTex);
 	

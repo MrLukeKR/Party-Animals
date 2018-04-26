@@ -18,6 +18,8 @@ void Scaffolding::Display() {
 	glRotatef(rotation[1], 0.f, 1.f, 0.f);
 	glRotatef(rotation[2], 0.f, 0.f, 1.f);
 
+	glColor4f(0.8f, 0.8f, 0.8f, 1);
+
 	drawScaffolding();
 
 	glPopAttrib();
