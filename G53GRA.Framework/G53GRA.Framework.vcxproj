@@ -9,10 +9,16 @@
   <ItemGroup>
     <ClCompile Include="Code\main.cpp" />
     <ClCompile Include="Code\MyScene.cpp" />
+    <ClCompile Include="Code\Objects\Animals\DiscoBallParrot.cpp" />
     <ClCompile Include="Code\Objects\Animals\Monkey.cpp" />
     <ClCompile Include="Code\Objects\Animals\Snake.cpp" />
     <ClCompile Include="Code\Objects\Box.cpp" />
     <ClCompile Include="Code\Objects\Box.h" />
+    <ClCompile Include="Code\Objects\Cabana.cpp" />
+    <ClCompile Include="Code\Objects\DJ Objects\Meter.cpp" />
+    <ClCompile Include="Code\Objects\DJ Objects\Screen.cpp" />
+    <ClCompile Include="Code\Objects\PartyHat.cpp" />
+    <ClCompile Include="Code\Objects\Rock.cpp" />
     <ClCompile Include="Code\SpecialFX\Confetti.cpp" />
     <ClCompile Include="Code\Objects\Lights\Moon.cpp" />
     <ClCompile Include="Code\Objects\Lights\Sun.cpp" />
@@ -34,8 +40,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\MyScene.h" />
+    <ClInclude Include="Code\Objects\Animals\DiscoBallParrot.h" />
     <ClInclude Include="Code\Objects\Animals\Monkey.h" />
     <ClInclude Include="Code\Objects\Animals\Snake.h" />
+    <ClInclude Include="Code\Objects\Cabana.h" />
+    <ClInclude Include="Code\Objects\DJ Objects\Meter.h" />
+    <ClInclude Include="Code\Objects\DJ Objects\Screen.h" />
+    <ClInclude Include="Code\Objects\PartyHat.h" />
+    <ClInclude Include="Code\Objects\Rock.h" />
     <ClInclude Include="Code\SpecialFX\Confetti.h" />
     <ClInclude Include="Code\Objects\Lights\Moon.h" />
     <ClInclude Include="Code\Objects\Lights\DiscoLight.h" />
