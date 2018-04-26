@@ -20,7 +20,10 @@ private:
 	void drawEye();
 	void drawEar();
 	void drawSunglasses();
-	float elbowRotation = 0, shoulderRotation = -80;
+	void drawMouth();
+
+	bool reverseShift = false;
+	float elbowRotation = 0, shoulderRotation = -80, headShift = 0;
 	float currentAnimationTime = 0;
 	float animationTime = .5f;
 };

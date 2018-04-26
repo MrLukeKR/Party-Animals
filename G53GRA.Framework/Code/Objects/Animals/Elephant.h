@@ -6,8 +6,8 @@ class Elephant :
 	public DisplayableObject, public Animation
 {
 public:
-	Elephant();
-	~Elephant();
+	Elephant() { elephantTex = Scene::GetTexture("./Textures/elephant.bmp"); };
+	~Elephant() {};
 
 	void Display();
 	void Update(const double& dT);
@@ -20,4 +20,9 @@ private:
 	void drawEars();
 	void drawHead();
 	void drawTusks();
+
+	GLuint elephantTex;
+
+	float earAngle = 0;
+	bool reverseEarFlap = false;
 };

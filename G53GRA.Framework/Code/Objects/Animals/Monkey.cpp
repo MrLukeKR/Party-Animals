@@ -1,5 +1,6 @@
 #include "Monkey.h"
 #include "Objects\Box.h"
+#include "Objects\PartyHat.h"
 
 void Monkey::Display() {
 	glPushMatrix();
@@ -13,7 +14,7 @@ void Monkey::Display() {
 
 	drawBody();
 	glPushMatrix();
-	glTranslatef(0, 3, 0);
+	glTranslatef(0, 3, headShift);
 	drawHead();
 	glPopMatrix();
 	glPushMatrix();
@@ -31,33 +32,62 @@ void Monkey::Display() {
 
 void Monkey::drawHead() {
 	glPushMatrix();
+		glPushMatrix();
+			glColor3f(0.545f, 0.271f, 0.075f);
+			Box::box(2, 2, 2);
+			glTranslatef(-2, 0, 0);
+			glColor3f(0.961f, 0.871f, 0.702f);
+			Box::box(.2f, 1.5f, 1.5f);
+		glPopMatrix();
+		glPushMatrix();
+			glTranslatef(0, 1, 2.5f);
+			drawEar();
+		glPopMatrix();
+		glPushMatrix();
+			glTranslatef(0, 1, -2.5f);
+			drawEar();
+		glPopMatrix();
+		glPushMatrix();
+			glTranslatef(-2,0.5f,-1);
+			drawEye();
+		glPopMatrix();
+		glPushMatrix();
+			glTranslatef(-2, 0.5f, 1);
+			drawEye();
+		glPopMatrix();
+		glPushMatrix();
+			glTranslatef(-2.15f, -1, 0);
+			drawMouth();
+		glPopMatrix();
+		glPushMatrix();
+			glTranslatef(0, 2, 0);
+			PartyHat* hat = new PartyHat();
+			hat->Display();
+		glPopMatrix();
+		glTranslatef(-2, 0.5f, 0);
+		drawSunglasses();
+	glPopMatrix();
+}
+
+void Monkey::drawMouth() {
 	glPushMatrix();
-	glColor3f(0.545f, 0.271f, 0.075f);
-	Box::box(2, 2, 2);
-	glTranslatef(-2, 0, 0);
-	glColor3f(0.961f, 0.871f, 0.702f);
-	Box::box(.2f, 1.5f, 1.5f);
+		glColor4f(0, 0, 0, 1);
+		Box::box(.1f, .3f, .525f);
 	glPopMatrix();
-	
+	glTranslatef(-0.1f, 0, 0);
 	glPushMatrix();
-	glTranslatef(0, 1, 2.5f);
-	drawEar();
+		glTranslatef(0, 0.25f, 0);
+		glColor4f(1, 1, 1, 1);
+		Box::box(.1f, .1f, .5f);
 	glPopMatrix();
 	glPushMatrix();
-	glTranslatef(0, 1, -2.5f);
-	drawEar();
+		glTranslatef(0, -0.25f, 0);
+		glColor4f(1, 1, 1, 1);
+		Box::box(.1f, .1f, .5f);
 	glPopMatrix();
-	glPushMatrix();
-	glTranslatef(-2,0.5f,-1);
-	drawEye();
-	glPopMatrix();
-	glPushMatrix();
-	glTranslatef(-2, 0.5f, 1);
-	drawEye();
-	glPopMatrix();
-	glTranslatef(-2, 0.5f, 0);
-	drawSunglasses();
-	glPopMatrix();
+	glColor4f(1, 0, 0, 1);
+	glTranslatef(0, -0.1f, 0);
+	Box::box(.1f, .05f, .15f);
 }
 
 void Monkey::drawEar() {
@@ -83,7 +113,7 @@ void Monkey::drawBody() {
 
 void Monkey::drawSunglasses() {
 	glPushMatrix();
-	glColor4f(0.f, 1.f, 1.f, .25f);
+	glColor4f(0.f, 0.f, 0.f, .25f);
 	Box::box(.85f, .85f, 1.8f);
 	glPopMatrix();
 }
@@ -91,7 +121,7 @@ void Monkey::drawSunglasses() {
 void Monkey::drawEye() {
 	glPushMatrix();
 	glColor4f(0.f, 0.f, 0.f, 1.f);
-	Box::box(.75f, .75f, .75f);
+	Box::box(.325f, .325f, .325f);
 	glPopMatrix();
 }
 
@@ -119,6 +149,14 @@ void Monkey::drawLeftArm() {
 
 void Monkey::Update(const double& dT) {
 	currentAnimationTime = fmod(currentAnimationTime + dT, animationTime);
+
+	if (reverseShift) headShift -= 0.4f;
+	else headShift += 0.2f;
+
+	if (headShift >= 1)
+		reverseShift = true;
+	else if (headShift <= -1)
+		reverseShift = false;
 
 	float animationStage = 6.f * currentAnimationTime / animationTime;
 

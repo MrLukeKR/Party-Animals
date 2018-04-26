@@ -1,5 +1,6 @@
 #include "Giraffe.h"
 #include "Objects\Box.h"
+#include "Objects\PartyHat.h"
 
 Giraffe::Giraffe()
 {
@@ -157,35 +158,40 @@ void Giraffe::Update(const double& dT) {
 
 void Giraffe::drawHead() {
 	glPushMatrix();
-	glRotatef(headAngle, 0, 0, 1.f);
-	glTranslatef(0.f, 0.3f, 0.f);
-	Box::box(0.3f, 0.5f, 0.3f, giraffeTex);
-	glPushMatrix();
-	drawEyes();
-	glPopMatrix();
-	glPushMatrix();
-	drawTongue();
-	glPopMatrix();
-	glPushMatrix();
-	drawEars();
-	glPopMatrix();
+		glTranslatef(0.f, 0.3f, 0.f);
+		glPushMatrix();
+			glScalef(0.5f, 0.5f, 0.5f);
+			PartyHat* hat = new PartyHat();
+			hat->Display();
+		glPopMatrix();
+		glRotatef(headAngle, 0, 0, 1.f);
+		Box::box(0.3f, 0.5f, 0.3f, giraffeTex);
+		glPushMatrix();
+			drawEyes();
+		glPopMatrix();
+		glPushMatrix();
+			drawTongue();
+		glPopMatrix();
+		glPushMatrix();
+			drawEars();
+		glPopMatrix();
 	glPopMatrix();
 }
 
 void Giraffe::drawBody() {
 	//Giraffe's Main Body
-	glColor3f(1.f, 1.f, 0.f);
+	glColor3f(1.f, 1.f, 1.f);
 	Box::box(1.11f, .5f, .65f, giraffeTex);
 }
 
 void Giraffe::drawNeck() {
 	glTranslatef(0.f, 2.225f, 0.f);
-	glColor3f(1.f, 1.f, 0.f);
+	glColor3f(1.f, 1.f, 1.f);
 	Box::box(0.2f, neckHeight, 0.2f, giraffeTex);
 }
 
 void Giraffe::drawLeg() {
 	glTranslatef(0.f, -1.f, 0.f);
-	glColor3f(1.f, 1.f, 0.f);
+	glColor3f(1.f, 1.f, 1.f);
 	Box::box(0.2f, 1, 0.2f, giraffeTex);
 }
