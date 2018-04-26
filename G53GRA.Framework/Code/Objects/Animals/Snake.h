@@ -16,7 +16,11 @@ public:
 	void Update(const double& dT);
 
 private:
+	void drawHead();
+	void drawEye();
+	void drawTongue();
+
 	GLuint snakeTex;
-	float segmentPos[5] = {0};
+	float frequency = 10;
 	int offset = 0;
 };

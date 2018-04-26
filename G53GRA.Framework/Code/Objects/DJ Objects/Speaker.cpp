@@ -40,8 +40,6 @@ void Speaker::drawSpeaker() {
 
 	glEnable(GL_TEXTURE_2D);
 	glEnable(GL_COLOR_MATERIAL);
-	//glDisable(GL_LIGHTING);
-
 	glBindTexture(GL_TEXTURE_2D, texID);
 
 		glPushMatrix();

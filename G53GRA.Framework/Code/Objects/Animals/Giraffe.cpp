@@ -16,96 +16,96 @@ Giraffe::~Giraffe()
 
 void Giraffe::drawGiraffe() {
 	glPushMatrix();
-	drawBody();
-	glPushMatrix();
-	glTranslatef(-1.5f, 0, .0f);
-	drawTail();
-	glPopMatrix();
-	glPushMatrix();
-	glTranslatef(0.9f, 0, .4f);
-	drawLeg();
-	glPopMatrix();
-	glPushMatrix();
-	glTranslatef(-0.9f, 0, .4f);
-	drawLeg();
-	glPopMatrix();
-	glPushMatrix();
-	glTranslatef(-0.9f, 0, -.4f);
-	drawLeg();
-	glPopMatrix();
-	glPushMatrix();
-	glTranslatef(0.9f, 0, -.4f);
-	drawLeg();
-	glPopMatrix();
-	glPushMatrix();
-	glTranslatef(.65f, 0.f, 0.f);
-	glRotatef(neckAngle, 0.f, 0, 1.f);
-	glRotatef(neckSpinAngle, 1.f, 0, 0.f);
-	drawNeck();
-	glTranslatef(0.f, neckHeight, 0.f);
-	glPushMatrix();
-
-	drawHead();
-	glPopMatrix();
-	glPopMatrix();
+		drawBody();
+		glPushMatrix();
+			glTranslatef(-1.5f, 0, .0f);
+			drawTail();
+		glPopMatrix();
+		glPushMatrix();
+			glTranslatef(0.9f, 0, .4f);
+			drawLeg();
+		glPopMatrix();
+		glPushMatrix();
+			glTranslatef(-0.9f, 0, .4f);
+			drawLeg();
+		glPopMatrix();
+		glPushMatrix();
+			glTranslatef(-0.9f, 0, -.4f);
+			drawLeg();
+		glPopMatrix();
+		glPushMatrix();
+			glTranslatef(0.9f, 0, -.4f);
+			drawLeg();
+		glPopMatrix();
+		glPushMatrix();
+			glTranslatef(.65f, 0.f, 0.f);
+			glRotatef(neckAngle, 0.f, 0, 1.f);
+			glRotatef(neckSpinAngle, 1.f, 0, 0.f);
+			drawNeck();
+			glTranslatef(0.f, neckHeight, 0.f);
+			glPushMatrix();
+				glTranslatef(.25f, 0, 0);
+				drawHead();
+			glPopMatrix();
+		glPopMatrix();
 	glPopMatrix();
 }
 
 void Giraffe::drawTail() {
 	glPushMatrix();
-	glTranslatef(0.35f, -0.25f, 0.f);
-	glRotatef(-10, 0, 0, 1);
-	glColor3f(1.f, 1.f, 0.f);
-	Box::box(0.05f, 0.5f, 0.05f, giraffeTex);
+		glTranslatef(0.35f, -0.25f, 0.f);
+		glRotatef(-10, 0, 0, 1);
+		glColor3f(1.f, 1.f, 0.f);
+		Box::box(0.05f, 0.5f, 0.05f, giraffeTex);
 	glPopMatrix();
 }
 
 void Giraffe::drawEyes() {
 	glColor3f(0, 0, 0);
 	glPushMatrix();
-	glTranslatef(0, 0, -0.35f);
-	Box::box(0.1f, 0.1f, 0.1f);
+		glTranslatef(0, 0, -0.35f);
+		Box::box(0.1f, 0.1f, 0.1f);
 	glPopMatrix();
 	glPushMatrix();
-	glTranslatef(0, 0, 0.35f);
-	Box::box(0.1f, 0.1f, 0.1f);
+		glTranslatef(0, 0, 0.35f);
+		Box::box(0.1f, 0.1f, 0.1f);
 	glPopMatrix();
 }
 
 void Giraffe::drawEars() {
 	glColor3f(1, 1, 1);
 	glPushMatrix();
-	glTranslatef(-0.5f,-0.25f,-0.15f);
-	Box::box(0.2f, 0.1f, 0.1f, giraffeTex);
+		glTranslatef(-0.5f,-0.25f,-0.15f);
+		Box::box(0.2f, 0.1f, 0.1f, giraffeTex);
 	glPopMatrix();
 	glPushMatrix();
-	glTranslatef(-0.5f, -0.25f, 0.15f);
-	Box::box(0.2f, 0.1f, 0.1f, giraffeTex);
+		glTranslatef(-0.5f, -0.25f, 0.15f);
+		Box::box(0.2f, 0.1f, 0.1f, giraffeTex);
 	glPopMatrix();
 }
 
 void Giraffe::drawTongue() {
 	glColor3f(1, 0, 0);
 	glPushMatrix();
-	glTranslatef(0.25f, 0.5f, 0);
-	Box::box(0.1f, .05f, 0.1f);
+		glTranslatef(0.25f, 0.5f, 0);
+		Box::box(0.1f, .05f, 0.1f);
 	glPopMatrix();
 }
 
 void Giraffe::Display() {
 	glPushMatrix();
-	glPushAttrib(GL_ALL_ATTRIB_BITS);
+		glPushAttrib(GL_ALL_ATTRIB_BITS);
 
-	glTranslatef(pos[0], pos[1], pos[2]);
-	glScalef(scale[0], scale[1], scale[2]);
-	glRotatef(rotation[0], 1.f, 0.f, 0.f);
-	glRotatef(rotation[1], 0.f, 1.f, 0.f);
-	glRotatef(rotation[2], 0.f, 0.f, 1.f);
+			glTranslatef(pos[0], pos[1], pos[2]);
+			glScalef(scale[0], scale[1], scale[2]);
+			glRotatef(rotation[0], 1.f, 0.f, 0.f);
+			glRotatef(rotation[1], 0.f, 1.f, 0.f);
+			glRotatef(rotation[2], 0.f, 0.f, 1.f);
 
-	glScalef(5, 5, 5);
-	drawGiraffe();
+			glScalef(5, 5, 5);
+			drawGiraffe();
 
-	glPopAttrib();
+		glPopAttrib();
 	glPopMatrix();
 }
 
