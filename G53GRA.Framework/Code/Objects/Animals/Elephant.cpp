@@ -2,9 +2,10 @@
 #include "Objects\Box.h"
 #include "Objects\PartyHat.h"
 
-/* Party Animals: Elephant
-   Author: Luke K. Rose
-   April 2018
+/* 
+Party Animals: Elephant
+Author: Luke K. Rose
+April 2018
 */
 
 /*
@@ -21,14 +22,14 @@ void Elephant::Display() {
 	
 			drawBody(); //Draws the Elephant's body
 	
-			for(int i = -1; i <= 1; i += 2)
-				for (int j = -1; j <= 1; j += 2) { //Draws 4 legs in each corner of the Elephant's body
+			for(float i = -1; i <= 1; i += 2)
+				for (float j = -1; j <= 1; j += 2) { //Draws 4 legs in each corner of the Elephant's body
 					glPushMatrix();
-						glTranslatef(i * 6, -7, j * 4);
+						glTranslatef(i * 6, -7, j * 4); //Move right by left/right by 6, down by 7 and backward/forward by 4
 						drawLeg(); //Draws a leg
 					glPopMatrix();
 				}
-				glTranslatef(9, 5, 0); //Move east by 9 and up by 5
+				glTranslatef(9, 5, 0); //Move right by 9 and up by 5
 				drawHead(); //Draws the Elephant's head
 		glPopAttrib();
 	glPopMatrix();
@@ -69,7 +70,7 @@ void Elephant::drawEyes() {
 	glColor4f(0, 0, 0, 1); //Sets the colour to opaque black
 	for (int i = -1; i <= 1; i += 2) { //Draws 2 eyes that mirror each other
 		glPushMatrix();
-			glTranslatef(3, 1, i * 1.5f); //Moves east by 3, up by 1 and forward/backward by 1.5
+			glTranslatef(3, 1, i * 1.5f); //Moves right by 3, up by 1 and forward/backward by 1.5
 			Box::box(0.5f, 0.5f, 0.5f); //Draws a 0.5 x 0.5 x 0.5 cube
 		glPopMatrix();
 	}
@@ -81,14 +82,14 @@ Draws the Elephant's head
 void Elephant::drawHead() {
 	glPushMatrix();
 		Box::box(3, 3, 3, elephantTex); //Draws a 3 x 3 x 3 cube with the Elephant texture
-		glTranslatef(4, 0, 0); //Moves east by 4
+		glTranslatef(4, 0, 0); //Moves right by 4
 		drawTusks(); //Draws the Elephant's tusks
 		glPushMatrix();
 			glTranslatef(0, -4.5f, 0); //Moves down by 4.5
 			glRotatef(-65, 0, 0, 1); //Rotates clockwise by 65 degrees along the z axis
 			drawTrunk(); //Draws the Elephant's trunk
 		glPopMatrix();
-		glTranslatef(-4, 0, 0); //Moves west by 4
+		glTranslatef(-4, 0, 0); //Moves left by 4
 		drawEyes(); //Draws the Elephant's eyes
 		glTranslatef(0, 3, 0); //Moves up by 3
 		drawEars(); //Draws the Elephant's ears
@@ -115,7 +116,7 @@ Draws the Elephant's tusks
 */
 void Elephant::drawTusks() {
 	glColor4f(0.9f, 0.9f, 0.9f, 1); //Sets colour to opaque slightly off-white
-	for (int i = -1; i <= 1; i += 2) { //Draws 2 tusks that mirror each other
+	for (float i = -1; i <= 1; i += 2) { //Draws 2 tusks that mirror each other
 		glPushMatrix();
 			glTranslatef(0, -1.5f, i * 2); //Moves 1.5 down and 2 forward/backward
 			glRotatef(-25, 0, i, 1); //Rotates by 25 degrees (counter) clockwise along the y axis and clockwise around the z axis 
@@ -129,7 +130,7 @@ Draws the Elephant's ears
 */
 void Elephant::drawEars() {
 	glColor4f(1, 1, 1, 1); //Set colour to opaque white
-	for (int i = -1; i <= 1; i += 2) { //Draws 2 ears that mirror each other
+	for (float i = -1; i <= 1; i += 2) { //Draws 2 ears that mirror each other
 		glPushMatrix();
 			glTranslatef(0, 0, i * 3); //Move 3 forward/backward
 			glRotatef(-45 - animationAngle, 0, 1, 0); //Rotates the ears along the y axis according to the current animation angle
