@@ -1,20 +1,38 @@
 #pragma once
+
 #define _USE_MATH_DEFINES
+
 #include ".\DisplayableObject.h"
 #include ".\Animation.h"
 #include <cmath>
+
+/*
+Party Animals: Sun (Header File)
+Author: Luke K. Rose
+April 2018
+*/
 
 class Sun :
 	public DisplayableObject,
 	public Animation
 {
 public:
-	Sun();
-	~Sun();
+	/*
+	Public Constructor/Destructor
+	*/
+	Sun() {};
+	~Sun() {};
 
+	/*
+	Public methods
+	*/
 	void Display();
 	void Update(const double& deltaTime);
+
 private:
+	/*
+	Private variables
+	*/
 	float orbitRotation = 0.f;
 	float color[3] = { 1.f,0.647f,0.0f };
 	GLfloat light_ambient[4] = { 1.0, 1.0, 1.0, 1.0 };

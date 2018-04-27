@@ -1,11 +1,21 @@
 #pragma once
+
 #include "DisplayableObject.h"
 #include "Animation.h"
+
+/*
+Party Animals: Confetti (Header File)
+Author: Luke K. Rose
+April 2018
+*/
 
 class Confetti : 
 	public DisplayableObject, 
 	public Animation {
 public:
+	/*
+	Public Constructor/Destructor
+	*/
 	Confetti(float x, float y, float z) {
 		dropLoc[0] = (x);
 		dropLoc[1] = (y);
@@ -16,9 +26,16 @@ public:
 
 	~Confetti() {};
 
+	/*
+	Public methods
+	*/
 	void Display();
 	void Update(const double& dT);
+
 private:
+	/*
+	Private variables
+	*/
 	float 
 	r = (rand() % 10) / 10.0f,
 	g = (rand() % 10) / 10.0f,
