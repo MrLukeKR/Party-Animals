@@ -2,6 +2,11 @@
 #include "Objects\Box.h"
 #include "Objects\PartyHat.h"
 
+/* Party Animals: Elephant
+   Author: Luke K. Rose
+   April 2018
+*/
+
 void Elephant::Display() {
 	glPushMatrix();
 		glPushAttrib(GL_ALL_ATTRIB_BITS);

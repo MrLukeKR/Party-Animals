@@ -131,12 +131,10 @@ void MyScene::Initialise()
 
 	Scaffolding* djScaffolding = new Scaffolding();
 	djScaffolding->position(100, 15, 900);
-	djScaffolding->size(1, 1, 1);
 	AddObjectToScene(djScaffolding);
 
 	DJDecks* djDecks = new DJDecks();
 	djDecks->position(100, -1, 900);
-	djDecks->size(1, 1, 1);
 	AddObjectToScene(djDecks);
 
 	Meter* meter = new Meter();
@@ -158,7 +156,6 @@ void MyScene::Initialise()
 
 	Monkey* djMonkey= new Monkey();
 	djMonkey->position(105, -1, 900);
-	djMonkey->size(1, 1, 1);
 	AddObjectToScene(djMonkey);
 	
 	Snake* snake = new Snake();

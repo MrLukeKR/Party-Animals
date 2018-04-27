@@ -2,6 +2,11 @@
 #include "DisplayableObject.h"
 #include "Animation.h"
 
+/* Party Animals: Disco Ball Parrot (Header File)
+   Author: Luke K. Rose
+   April 2018
+*/
+
 class Elephant :
 	public DisplayableObject, public Animation
 {
