@@ -3,25 +3,26 @@
 
 #define NUMBER_OF_LASERS 10
 
+/*
+Party Animals: Laser
+Author: Luke K. Rose
+April 2018
+*/
+
 Laser::Laser() {
 	degree = new float[NUMBER_OF_LASERS];
-	x = new float[NUMBER_OF_LASERS];
-	y = new float[NUMBER_OF_LASERS];
 
-	for (int i = 0; i < NUMBER_OF_LASERS; i++) {
-		degree[i] = rand();
-		x[i] = (rand() / RAND_MAX * 90.f) - 45.f;
-		y[i] = (rand() / RAND_MAX * 90.f) - 45.f;
-	}
-
+	for (int i = 0; i < NUMBER_OF_LASERS; i++) 
+		degree[i] = (float)rand();
 }
 
 Laser::~Laser() {
 	delete[] degree;
-	delete[] x;
-	delete[] y;
 }
 
+/*
+Draws the object
+*/
 void Laser::Display() {
 	glPushMatrix();
 		glPushAttrib(GL_ALL_ATTRIB_BITS);
@@ -31,22 +32,24 @@ void Laser::Display() {
 			glRotatef(rotation[1], 0.f, 1.f, 0.f);
 			glRotatef(rotation[2], 0.f, 0.f, 1.f);
 	
-			drawUnit();
-			glTranslatef(-2, 0, 0);
-			drawLasers();
+			drawUnit(); //Draws the hardware side of the laser unit
+			glTranslatef(-2, 0, 0); //Move left by 2
+			drawLasers(); //Draws the laser beams
 		glPopAttrib();
 	glPopMatrix();
-	
 }
 
+/*
+Updates animation angles and translation vectors for the object
+*/
 void Laser::Update(const double& dT) {
 	static double totalTime = 0;
 	totalTime += dT;
 
 	for (int i = 0; i < NUMBER_OF_LASERS; i++)
-		degree[i] = degree[i] + ((float)rand() / (float)RAND_MAX);
+		degree[i] = degree[i] + ((float)rand() / (float)RAND_MAX); //Rotate the lasers randomly
 
-	switch ((int) (totalTime) % 6) {
+	switch ((int) (totalTime) % 6) { //Select a colour for the lasers based on the current animation time
 	case 0:
 		red = 1;
 		green = 0;
@@ -81,26 +84,30 @@ void Laser::Update(const double& dT) {
 
 }
 
+/*
+Draws the hardware part of the laser unit
+*/
 void Laser::drawUnit() {
-	glPushMatrix();
-		glColor4f(0, 0, 0, 1);
-		Box::box(2, 1, 1);
-	glPopMatrix();
+		glColor4f(0, 0, 0, 1); //Set colour to opaque black
+		Box::box(2, 1, 1); //Draw a 2 x 1 x 1 cube
 }
 
+/*
+Draws the laser beams
+*/
 void Laser::drawLasers() {
 	glDisable(GL_LIGHTING);
-	glPushMatrix();
-	for (int i = 0; i < NUMBER_OF_LASERS; i++) {
-		glRotatef(degree[i], x[i], y[i], 0);
 		glPushMatrix();
-			glColor4f(red, green, blue, 0.8f);
-			glBegin(GL_LINE_LOOP);
-				glVertex3f(0, 0, 0);
-				glVertex3f(0, -100, 0);
-			glEnd();
+			for (int i = 0; i < NUMBER_OF_LASERS; i++) {
+				glRotatef(degree[i], 45, 45, 0); //Rotate the laser by an animated amont * a factor of 45 along the x and y axes
+				glPushMatrix();
+					glColor4f(red, green, blue, 0.8f); //Set the colour and make it slightly translucent
+					glBegin(GL_LINE_LOOP); //Draw the laser
+						glVertex3f(0, 0, 0);
+						glVertex3f(0, -100, 0);
+					glEnd();
+				glPopMatrix();
+			}
 		glPopMatrix();
-	}
-	glPopMatrix();
 	glEnable(GL_LIGHTING);
 }
