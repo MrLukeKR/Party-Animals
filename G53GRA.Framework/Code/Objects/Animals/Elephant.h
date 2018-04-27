@@ -8,16 +8,26 @@
 */
 
 class Elephant :
-	public DisplayableObject, public Animation
+	public DisplayableObject, 
+	public Animation
 {
 public:
+	/*
+	Public Constructor/Destructor
+	*/
 	Elephant() {};
 	~Elephant() {};
 
+	/*
+	Public methods
+	*/
 	void Display();
 	void Update(const double& dT);
 
 private:
+	/*
+	Private methods
+	*/
 	void drawBody();
 	void drawLeg();
 	void drawTrunk();
@@ -26,8 +36,10 @@ private:
 	void drawHead();
 	void drawTusks();
 
+	/*
+	Private variables
+	*/
 	GLuint elephantTex = Scene::GetTexture("./Textures/elephant.bmp");;
-
 	float animationAngle = 0;
 	bool reverseAnimation = false;
 };
