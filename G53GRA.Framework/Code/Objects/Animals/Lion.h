@@ -1,9 +1,15 @@
 #pragma once
+
 #include "DisplayableObject.h"
 #include "Animation.h"
 
 #define MOONWALK_RANGE 20
 
+/* 
+Party Animals: Lion (Header File)
+Author: Luke K. Rose
+April 2018
+*/
 class Lion:
 	public DisplayableObject,
 	public Animation
