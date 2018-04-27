@@ -1,5 +1,14 @@
 #include "PartyHat.h"
 
+/*
+Party Animals: Party Hat
+Author: Luke K. Rose
+April 2018
+*/
+
+/*
+Draws the object
+*/
 void PartyHat::Display() {
 	glPushMatrix();
 		glPushAttrib(GL_ALL_ATTRIB_BITS);

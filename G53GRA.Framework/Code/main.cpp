@@ -1,5 +1,5 @@
 /**
-* Entry file to framework. Should not edit this file, though to change window size, adjust parameters in creastion of new scene
+* Entry file to framework. Should not edit this file, though to change window size, adjust parameters in crrightion of new scene
 * <p>
 * {@code new MyScene(argc, argv, "title", (const int)width, (const int)height)}
 * @author wil

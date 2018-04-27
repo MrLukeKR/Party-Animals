@@ -1,6 +1,15 @@
 #include "Confetti.h"
 #include "../Objects/Box.h"
 
+/*
+Party Animals: Confetti
+Author: Luke K. Rose
+April 2018
+*/
+
+/*
+Draws the object
+*/
 void Confetti::Display() {
 	glPushMatrix();
 	glPushAttrib(GL_ALL_ATTRIB_BITS);
@@ -18,6 +27,9 @@ void Confetti::Display() {
 	glPopMatrix();
 }
 
+/*
+Updates animation angles and translation vectors for the object
+*/
 void Confetti::Update(const double& dT) {
 	for(int i = 0; i < 3; i++)
 		rotation[i] += rand() % 30;

@@ -23,10 +23,6 @@ void Moon::Display() {
 			glutSolidSphere(scale[0], 10, 10); //Draw the moon
 		glPopAttrib();
 	glPopMatrix();
-
-	glLightfv(GL_LIGHT2, GL_DIFFUSE, light_diffuse);
-	glLightfv(GL_LIGHT2, GL_SPECULAR, light_diffuse);
-	glLightfv(GL_LIGHT2, GL_POSITION, light_position);
 }
 
 /*
@@ -41,6 +37,10 @@ void Moon::Update(const double& deltaTime)
 
 	for (int i = 0; i < 4; i++) //Set the brightness of the moon
 		light_diffuse[i] = (float)sin(orbitRotation * M_PI / 180.f);
+
+	glLightfv(GL_LIGHT2, GL_DIFFUSE, light_diffuse);
+	glLightfv(GL_LIGHT2, GL_SPECULAR, light_diffuse);
+	glLightfv(GL_LIGHT2, GL_POSITION, light_position);
 
 	orbitRotation += .1f; //Update the orbit of the moon
 	if (orbitRotation >= 360.f) //Reset the orbit of the moon if it exceeds the bounds

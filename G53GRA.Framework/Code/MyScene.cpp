@@ -12,7 +12,6 @@
 #include "Objects\DJ Objects\DJDecks.h"
 #include "Objects\DJ Objects\DanceFloor.h"
 #include "SpecialFX\Confetti.h"
-#include "SpecialFX\Smoke.h"
 #include "Objects\Animals\Snake.h"
 #include "Objects\DJ Objects\Screen.h"
 #include "Objects\Animals\DiscoBallParrot.h"
@@ -36,7 +35,7 @@ void MyScene::Initialise()
 	glDisable(GL_LIGHT0);
 	prevTime = glutGet(GLUT_ELAPSED_TIME);
 
-	DisplayableObject* skybox = new Skybox(new string[6]{
+	DisplayableObject* skybox = new Skybox(new std::string[6]{
 		"./Textures/skyboxes/yellowcloud/yellowcloud_bk.bmp",
 		"./Textures/skyboxes/yellowcloud/yellowcloud_lf.bmp",
 		"./Textures/skyboxes/yellowcloud/yellowcloud_ft.bmp",
@@ -80,12 +79,12 @@ void MyScene::Initialise()
 	AddObjectToScene(cabana);
 
 	DisplayableObject* sun = new Sun();
-	sun->position(500, 0, 0);
+	sun->position(1000, 0, 0);
 	sun->size(10, 10, 10);
 	AddObjectToScene(sun);
 
 	Moon* moon = new Moon();
-	moon->position(500, 0, 0);
+	moon->position(1000, 0, 0);
 	moon->size(10, 10, 10);
 	AddObjectToScene(moon);
 
@@ -118,13 +117,13 @@ void MyScene::Initialise()
 
 	for (int i = -1; i <= 1;i += 2) {
 		Laser* laser = new Laser();
-		laser->position(100, 13.5f, 25 * i + 900);
+		laser->position(100.f, 13.5f, 25.f * i + 900.f);
 		AddObjectToScene(laser);
 	}
 
 	for (int i = -1; i <= 1;i += 2) {
 		Speaker* speaker = new Speaker();
-		speaker->position(100, 10, i * 50 + 900);
+		speaker->position(100.f, 10.f, i * 50.f + 900.f);
 		speaker->size(2, 2, 2);
 		AddObjectToScene(speaker);
 	}

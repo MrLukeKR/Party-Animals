@@ -29,12 +29,10 @@
     <ClCompile Include="Code\Objects\DJ Objects\DJDecks.cpp" />
     <ClCompile Include="Code\Objects\Animals\Elephant.cpp" />
     <ClCompile Include="Code\Objects\DJ Objects\DanceFloor.cpp" />
-    <ClCompile Include="Code\SpecialFX\Smoke.cpp" />
     <ClCompile Include="Framework\Engine\Engine.cpp" />
     <ClCompile Include="Framework\Engine\Scene.cpp" />
     <ClCompile Include="Framework\Utility\Camera.cpp" />
     <ClCompile Include="Framework\Utility\Texture.cpp" />
-    <ClCompile Include="Code\Objects\Environment\Tree.cpp" />
     <ClCompile Include="Code\Objects\Environment\Skybox.cpp" />
     <ClCompile Include="Code\Objects\Environment\Terrain.cpp" />
     <ClCompile Include="Code\Objects\Animals\Giraffe.cpp" />
@@ -60,7 +58,6 @@
     <ClInclude Include="Code\Objects\DJ Objects\DJDecks.h" />
     <ClInclude Include="Code\Objects\Animals\Elephant.h" />
     <ClInclude Include="Code\Objects\DJ Objects\DanceFloor.h" />
-    <ClInclude Include="Code\SpecialFX\Smoke.h" />
     <ClInclude Include="Framework\Engine\Engine.h" />
     <ClInclude Include="Framework\Engine\Scene.h" />
     <ClInclude Include="Framework\Interface\Animation.h" />
@@ -69,7 +66,6 @@
     <ClInclude Include="Framework\Utility\Camera.h" />
     <ClInclude Include="Framework\Utility\Texture.h" />
     <ClInclude Include="Framework\Utility\VectorMath.h" />
-    <ClInclude Include="Code\Objects\Environment\Tree.h" />
     <ClInclude Include="Code\Objects\Environment\Skybox.h" />
     <ClInclude Include="Code\Objects\Lights\Sun.h" />
     <ClInclude Include="Code\Objects\Environment\Terrain.h" />

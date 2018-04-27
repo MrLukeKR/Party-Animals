@@ -1,6 +1,10 @@
 #include "Box.h"
 
-#define DEBUG 0
+/*
+Party Animals: Box
+Author: Luke K. Rose
+April 2018
+*/
 
 	void Box::box(float sx, float sy, float sz) {
 		Box::box(sx, sy, sz, NULL);
@@ -9,7 +13,7 @@
 	void Box::box(float sx, float sy, float sz, GLuint texID)
 	{
 		glPushMatrix();
-		glScalef(sx, sy, sz);                               // scale solid cube by size parameters
+		glScalef(sx, sy, sz);  //Scale solid cube by size parameters
 
 		glEnable(GL_TEXTURE_2D);
 		glEnable(GL_COLOR_MATERIAL);

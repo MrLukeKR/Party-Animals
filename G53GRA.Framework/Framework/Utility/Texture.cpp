@@ -88,7 +88,7 @@ int Texture::GetTexture(string fileName)
 	// read in file header
 	fread(&infoHeader, sizeof(BITMAPINFOHEADER), 1, bitmapFile);
 
-	// Check the image is at least RGB ... i.e 24 bits per pixel
+	// Check the image is at lright RGB ... i.e 24 bits per pixel
 	if (infoHeader.biBitCount < 24)
 	{
 		printf("Error: Trying to load %s.\nThe file is not in RGB or RGBA format.\nIt may be in grayscale format, open it in an image editor of your choice and change the image mode to RGB or RGBA.\n", fileName.c_str());

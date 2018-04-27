@@ -169,9 +169,9 @@ void DiscoBallParrot::drawHead() {
 		drawBeak(); //Draws the Parrot's beak
 		glTranslatef(-.5f, 1.f, 0.f); //Move up by 1 and left by 0.5
 		glPushMatrix();
-			glTranslatef(0.f, -0.5f, 0.5f); //Move down by 0.5 and forward by 0.5
-			glRotatef(30.f, 1.f, 0.f, 0.f); //Rotate 30 degrees counter clockwise along the x axis
 			PartyHat* hat = new PartyHat(); //Create a new party hat
+			hat->orientation(30, 0, 0); //Rotate the party hat by 30 degrees
+			hat->position(0, -.5f, .5f); //Move the party hat down by 0.5 and forward by 0.5
 			hat->Display(); //Draw the party hat
 		glPopMatrix();
 		glScalef(0.5f, 0.5f, 0.5f); //Half the size of the following
