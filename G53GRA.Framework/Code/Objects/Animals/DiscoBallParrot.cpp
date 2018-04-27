@@ -10,7 +10,7 @@
 #define NUMBER_OF_RAYS 50 //The number of rays to reflect off of the mirrorball
 #define ALTITUDE_RANGE 2 //The distance to float up and down
 #define ALTITUDE_CHANGE_FREQUENCY 0.1f //How fast to float up and down
-#define FEATHER_SEGMENT_LENGTH 0.75f //Length of each colour in feathers
+#define FEATHER_SEGMENT_LENGTH 0.5f //Length of each colour in feathers
 
 /*
 Initialises the object by creating a series of arrays to hold angles to rotate the light rays by
@@ -61,7 +61,7 @@ void DiscoBallParrot::Display() {
 				glTranslatef(-.5f, 0, 0); //Move west by 0.5
 				drawString(); //Draw the String that connects the Parrot to the Mirrorball
 				glTranslatef(0, -5, 0); //Move down by 5
-					drawDiscoBall(); //Draw the Mirrorball part of this object
+				drawDiscoBall(); //Draw the Mirrorball part of this object
 			glPopAttrib();
 	glPopMatrix();
 }
@@ -112,7 +112,7 @@ void DiscoBallParrot::drawParrot() {
 			drawFeet(); //Draws the Parrot's feet
 		glPopMatrix();
 		glPushMatrix();
-			glTranslatef(-1, -1.5f, 0); //Move down by 1.5 and west by 1
+			glTranslatef(-.5f, -1.5f, 0); //Move down by 1.5 and west by 0.75
 			glRotatef(-30, 0,0,1); //Rotate 30 degrees clockwise along the z axis
 			drawTailFeathers(); //Draws the Tail Feathers of the parrot
 		glPopMatrix();
@@ -138,8 +138,8 @@ Draws the main cube of the Parrot's body
 */
 void DiscoBallParrot::drawBody() {
 	glPushMatrix();
-	glColor4f(1, 0, 0, 1); //Change colour to opaque red
-	Box::box(1, 2, 1); //Draw 1 x 2 x 1 cube without texture
+		glColor4f(1, 0, 0, 1); //Change colour to opaque red
+		Box::box(1, 2, 1); //Draw 1 x 2 x 1 cube without texture
 	glPopMatrix();
 }
 
@@ -176,35 +176,23 @@ void DiscoBallParrot::drawHead() {
 				Box::box(0.1f, 0.1f, 0.1f); //Draw 0.1 x 0.1 x 0.1
 			glPopMatrix();
 		}
+		glTranslatef(.5f, 0, 0); //Move east by 0.5
+		drawBeak(); //Draws the Parrot's beak
+		glTranslatef(-.5f, 1, 0); //Move up by 1 and west by 0.5
 		glPushMatrix();
-			glTranslatef(.5f, 0, 0); //Move west by 0.5
-			drawBeak(); //Draws the Parrot's beak
+			glTranslatef(0, -0.5f, 0.5f); //Move down by 0.5 and forward by 0.5
+			glRotatef(30, 1, 0, 0); //Rotate 30 degrees counter clockwise along the x axis
+			PartyHat* hat = new PartyHat(); //Create a new party hat
+			hat->Display(); //Draw the party hat
 		glPopMatrix();
-		glPushMatrix();
-			glTranslatef(0, 1, 0); //Move up by 1
-			glPushMatrix();
-				glTranslatef(0, -0.5f, 0.5f); //Move down by 0.5 and forward by 0.5
-				glRotatef(30, 1, 0, 0); //Rotate 30 degrees counter clockwise along the x axis
-				PartyHat* hat = new PartyHat(); //Create a new party hat
-				hat->Display(); //Draw the party hat
-			glPopMatrix();
-			glScalef(0.5f, 0.5f, 0.5f);
-			glRotatef(90, 0, 1, 0);
-			glRotatef(180, 1, 0, 0);
-			glPushMatrix();
-				drawFeather();
-			glPopMatrix();
-			glRotatef(-30, 1, 0, 0);
-			glScalef(0.8f, 0.8f, 0.8f);
-			glPushMatrix();
-				drawFeather();
-			glPopMatrix();
-			glRotatef(-30, 1, 0, 0);
-			glScalef(0.8f, 0.8f, 0.8f);
-			glPushMatrix();
-				drawFeather();
-			glPopMatrix();
-		glPopMatrix();
+		glScalef(0.5f, 0.5f, 0.5f); //Half the size of the following
+		glRotatef(90, 0, 1, 0); //Rotate 90 degrees counter clockwise along the y axis
+		glRotatef(180, 1, 0, 0); //Flip along the x axis
+		for (int i = 0; i < 3; i++) { //Draws 3 feathers on the Parrot's head
+			drawFeather(); //Draws a feather
+			glRotatef(-30, 1, 0, 0); //Rotate 30 degrees clockwise along the x axis
+			glScalef(0.8f, 0.8f, 0.8f); //Set the scale to 0.8x the current size
+		}
 	glPopMatrix();
 }
 
@@ -213,31 +201,27 @@ Draws the beak of the Parrot
 */
 void DiscoBallParrot::drawBeak() {
 	glPushMatrix();
-	glColor4f(0, 0, 0, 1);
-	glBegin(GL_TRIANGLES);
-	glVertex3f(0, 0.5f, 0);
-	glVertex3f(1, 0, 0);
-	glVertex3f(0, 0, 0.5f);
-	glEnd();
-
-	glBegin(GL_TRIANGLES);
-	glVertex3f(0.5f, 0, -0.25f);
-	glVertex3f(0.75f, -0.5f, 0);
-	glVertex3f(1, 0, 0);
-	glEnd();
-
-	glBegin(GL_TRIANGLES);
-	glVertex3f(0.5f, 0, 0.25f);
-	glVertex3f(1, 0, 0);
-	glVertex3f(0.75f, -0.5f, 0);
-	glEnd();
-
-	glBegin(GL_TRIANGLES);
-	glVertex3f(0, 0.5f, 0);
-	glVertex3f(0, 0, -0.5f);
-	glVertex3f(1, 0, 0);
-	glEnd();
-
+		glColor4f(0, 0, 0, 1); //Set colour to opaque black
+		glBegin(GL_TRIANGLES);	
+			glVertex3f(0, 0.5f, 0); //Set vertex at 0.5 up
+			glVertex3f(1, 0, 0); //Set vertex at 1 east
+			glVertex3f(0, 0, 0.5f); //Set vertex at 0.5 forward
+		glEnd();
+		glBegin(GL_TRIANGLES);
+			glVertex3f(0.5f, 0, -0.25f); //Set vertex at 0.5 east, 0.2f backward
+			glVertex3f(0.75f, -0.5f, 0); //Set vertex at 0.75 east, 0.5 down
+			glVertex3f(1, 0, 0); //Set vertex at 1 east
+		glEnd();
+		glBegin(GL_TRIANGLES);
+			glVertex3f(0.5f, 0, 0.25f); //Set vertex at 0.5 east, 0.25 forward
+			glVertex3f(1, 0, 0); //Set vertex at 1 east
+			glVertex3f(0.75f, -0.5f, 0); //Set vertex at 0.75 east, 0.5 down
+		glEnd();
+		glBegin(GL_TRIANGLES);
+			glVertex3f(0, 0.5f, 0); //Set vertex at 0.5 up
+			glVertex3f(0, 0, -0.5f); //Set vertex at 0.5 backward
+			glVertex3f(1, 0, 0); //Set vertex at 1 east
+		glEnd();
 	glPopMatrix();
 }
 
@@ -245,44 +229,29 @@ void DiscoBallParrot::drawBeak() {
 Draws the wing of the Parrot
 */
 void DiscoBallParrot::drawWing(bool invert) {
-	glRotatef(invert ? -wingAngle / 4.0f : wingAngle / 4.0f, 1, 0, 0);
-	glRotatef(wingAngle, 0, 0, 1);
+	glRotatef(wingAngle, (invert ? -1 : 1) / 4.f, 0, 1); //Rotate the Parrot's wing by the animation angle along the x axis by a factor of 0.25 and z axis by a factor of 1
 	glPushMatrix();
-		glRotatef(-90, 0, 0, 1);
-		glPushMatrix();
-			drawFeather();
-		glPopMatrix();
-		glPushMatrix();
-			invert ? glRotatef(-10, 1, 0, 0) : glRotatef(10, 1, 0, 0);
-			glRotatef(10, 0, 0, 1);
-			glScalef(0.8f, 0.8f, 0.8f);
-			drawFeather();
-		glPopMatrix();
-		glPushMatrix();
-			invert ? glRotatef(-20, 1, 0, 0) : glRotatef(20, 1, 0, 0);
-			glRotatef(20, 0, 0, 1);
-			glScalef(0.5f, 0.5f, 0.5f);
-			drawFeather();
-		glPopMatrix();
+		glRotatef(-90, 0, 0, 1); //Rotate 90 degrees
+		for (int i = 0; i < 3; i++) { //Draw 3 feathers
+			drawFeather(); //Draws a feather
+			glRotatef(invert ? -10 : 10, 1, 0, invert ? -1 : 1); //Rotate 10 degrees (counter) clockwise along the x axis and counter clockwise along the z axis
+			glScalef(0.75f, 0.75f, 0.75f); //Set the scale to 0.75x the current size
+		}
 	glPopMatrix();
 }
 
 /*
 Draws the Tail Feathers of the Parrot*/
 void DiscoBallParrot::drawTailFeathers() {
-	glRotatef(wingAngle / 8.0f, 0, 0, 1);
 	glPushMatrix();
-		glPushMatrix();
-			drawFeather();
-		glPopMatrix();
-		glPushMatrix();
-			glTranslatef(0, 0, -0.65f);
-			glRotatef(5, 1, 0, 0);
-			drawFeather();
-		glPopMatrix();
-		glTranslatef(0, 0, 0.65f);
-		glRotatef(-5, 1, 0, 0);
-		drawFeather();
+		glRotatef(wingAngle / 8.0f, 0, 0, 1); //Rotate the angle of the tail feathers along the z axis based on the current animation angle. Divide by 8 to lessen the magnitude of the angle.
+		for (int i = -1; i <= 1; i ++) { //Draws 3 feathers, 1 in the middle and 2 mirroring each other
+			glPushMatrix();
+				glTranslatef(0, 0, 0.65f * i); //Move 0.65 forward/backward
+				glRotatef(-5 * i, 1, 0, 0); //rotate 5 degrees (counter) clockwise along the x axis
+				drawFeather(); //Draws a feather
+			glPopMatrix();
+		}
 	glPopMatrix();
 }
 
@@ -290,39 +259,34 @@ void DiscoBallParrot::drawTailFeathers() {
 Draws a single feather
 */
 void DiscoBallParrot::drawFeather() {
-	glColor4f(1, 0, 0, 1);
-	Box::box(.1f, FEATHER_SEGMENT_LENGTH, 1.0f / 3.0f);
-	glColor4f(0, 1, 0, 1);
-	glTranslatef(0, -FEATHER_SEGMENT_LENGTH * 2, 0);
-	Box::box(.1f, FEATHER_SEGMENT_LENGTH, 1.0f / 3.0f);
-	glColor4f(0, 0, 1, 1);
-	glTranslatef(0, -FEATHER_SEGMENT_LENGTH * 2, 0);
-	Box::box(.1f, FEATHER_SEGMENT_LENGTH, 1.0f / 3.0f);
-	glColor4f(1, 1, 0, 1);
-	glTranslatef(0, -FEATHER_SEGMENT_LENGTH * 2, 0);
-	Box::box(.1f, FEATHER_SEGMENT_LENGTH, 1.0f / 3.0f);
+	glPushMatrix();
+		for (int i = 0; i < 4; i++) {
+			glColor4f(i == 0 || i == 3, i == 1 || i == 3, i == 2, 1); //Change color based on the current position of i (C++ assigns true booleans a value of 1 and false booleans a value of 0)
+			glTranslatef(0, -FEATHER_SEGMENT_LENGTH * 2, 0); //Move 2 * the length of feeather colours down
+			Box::box(.1f, FEATHER_SEGMENT_LENGTH, 1.0f / 3.0f); //Draw a 0.1 x Feather Length x 0.33333r cube
+		}
+	glPopMatrix();
 }
 
 /*
 Draws the Mirror Ball for the Parrot to hold
 */
 void DiscoBallParrot::drawDiscoBall() {
-	glColor4f(0.8f, 0.8f, 0.8f, 1);
 	glPushMatrix();
-	glRotatef(discoBallRotation, 0, 1, 0);
+		glColor4f(0.8f, 0.8f, 0.8f, 1); //Change colour to opaque light grey
+		glRotatef(discoBallRotation, 0, 1, 0); //Rotate the Mirror Ball along the y axis according to the current animation rotation
 
-	glEnable(GL_TEXTURE_2D);
-	glEnable(GL_COLOR_MATERIAL);
-	glBindTexture(GL_TEXTURE_2D, discoBallTex);
-	GLUquadric* quadric = gluNewQuadric();
-	gluQuadricNormals(quadric, GLU_SMOOTH);
-	gluQuadricTexture(quadric, GL_TRUE);
-	gluSphere(quadric,3, 8, 8);
-	glDisable(GL_COLOR_MATERIAL);
-	glBindTexture(GL_TEXTURE_2D, NULL);
-	glDisable(GL_TEXTURE_2D);
-
-	drawRays();
+		glEnable(GL_TEXTURE_2D);
+			glEnable(GL_COLOR_MATERIAL);
+				glBindTexture(GL_TEXTURE_2D, discoBallTex);
+					GLUquadric* quadric = gluNewQuadric();
+					gluQuadricNormals(quadric, GLU_SMOOTH); //Generate normals for the sphere
+					gluQuadricTexture(quadric, GL_TRUE); //Generate texture coordinates for the sphere
+					gluSphere(quadric,3, 8, 8); //Draw a sphere
+				glBindTexture(GL_TEXTURE_2D, NULL);
+			glDisable(GL_COLOR_MATERIAL);
+		glDisable(GL_TEXTURE_2D);
+		drawRays(); //Draws volumetric light rays eminating from the Mirror Ball
 	glPopMatrix();
 }
 
@@ -332,28 +296,19 @@ Draws false volumetric "God-Rays", eminating from the Mirror Ball
 void DiscoBallParrot::drawRays() {
 	glPushMatrix();
 		glDisable(GL_LIGHTING);
-		glEnable(GL_BLEND);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		
-		glColor4f(1, 1, 1, 0.1f);
-		for (int i = 0; i < NUMBER_OF_RAYS; i++) {
-			glRotatef(degree[i], x[i], y[i], z[i]);
-			glPushMatrix();
-				glBegin(GL_TRIANGLES);
-					glVertex3f(0, 0, 0);
-					glVertex3f(0, 100, 10);
-					glVertex3f(0, 100 * 2, 5);
-				glEnd();
-			glPopMatrix();
-			glPushMatrix();
-				glBegin(GL_TRIANGLES);
-					glVertex3f(0, 0, 0);
-					glVertex3f(0, 100 * 2, 5);
-					glVertex3f(0, 100 * 2, 10);
-				glEnd();
-			glPopMatrix();
-		}
-		glDisable(GL_BLEND);
+			glEnable(GL_BLEND);
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+				glColor4f(1, 1, 1, 0.1f); //Change colour to barely visible white
+				for (int i = 0; i < NUMBER_OF_RAYS; i++) //Draws a set number of light rays
+					for (int j = 0; j <= 1; j++) { //Draws 2 sides of a ray (because of backface culling)
+						glRotatef(degree[i], x[i], y[i], z[i]); //Rotate the ray by its initially set random amount
+						glBegin(GL_TRIANGLES);
+							glVertex3f(0, 0, 0); //Draw a vertex at the origin
+							glVertex3f(0, 200, 10 - j * 5); //Draw a vertex at 200 along the y axis and 5 or 10 along the x axis
+							glVertex3f(0, 200,  5 + j * 5); //Draw a vertex at 200 along the y axis and 5 or 10 along the x axis
+						glEnd();
+					}
+			glDisable(GL_BLEND);
 		glEnable(GL_LIGHTING);
 	glPopMatrix();
 }
