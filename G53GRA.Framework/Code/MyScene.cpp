@@ -1,12 +1,11 @@
 #include "MyScene.h"
-#include "..\Code\Objects\Tree.h"
-#include "Objects\Skybox.h"
+#include "Objects\Environment\Skybox.h"
 #include "Objects\Lights\Sun.h"
 #include "Objects\Lights\Moon.h"
 #include "Objects\Animals\Giraffe.h"
 #include "Objects\Animals\Elephant.h"
 #include "Objects\Animals\Monkey.h"
-#include "Objects\Terrain.h"
+#include "Objects\Environment\Terrain.h"
 #include "Objects\Lights\DiscoLight.h"
 #include "Objects\DJ Objects\Speaker.h"
 #include "Objects\DJ Objects\Scaffolding.h"
@@ -17,12 +16,16 @@
 #include "Objects\Animals\Snake.h"
 #include "Objects\DJ Objects\Screen.h"
 #include "Objects\Animals\DiscoBallParrot.h"
-#include "Objects\Cabana.h"
+#include "Objects\Environment\Cabana.h"
 #include "Objects\DJ Objects\Meter.h"
-#include "Objects\Rock.h"
+#include "Objects\Environment\Rock.h"
+#include "Objects\DJ Objects\Laser.h"
+#include "Objects\Environment\Cactus.h"
+#include "Objects\Animals\Lion.h"
 
 #define MAX_ROCKS 40
-#define MAX_CLIFFS 100
+#define MAX_CLIFFS 50
+#define MAX_CACTI 500
 
 MyScene::MyScene(int argc, char** argv, const char *title, const int& windowWidth, const int& windowHeight)
 	: Scene(argc, argv, title, windowWidth, windowHeight){}
@@ -33,8 +36,8 @@ void MyScene::Initialise()
 	glDisable(GL_LIGHT0);
 	prevTime = glutGet(GLUT_ELAPSED_TIME);
 
-	DisplayableObject* skybox = new Skybox(new string[6] { 
-		"./Textures/skyboxes/yellowcloud/yellowcloud_bk.bmp", 
+	DisplayableObject* skybox = new Skybox(new string[6]{
+		"./Textures/skyboxes/yellowcloud/yellowcloud_bk.bmp",
 		"./Textures/skyboxes/yellowcloud/yellowcloud_lf.bmp",
 		"./Textures/skyboxes/yellowcloud/yellowcloud_ft.bmp",
 		"./Textures/skyboxes/yellowcloud/yellowcloud_rt.bmp",
@@ -46,7 +49,7 @@ void MyScene::Initialise()
 	for (int i = 0; i < MAX_ROCKS; i++) {
 		float radius = 200;
 		float x = radius * sin((float)i / (float)MAX_ROCKS * 360.f),
-			  y = radius * cos((float)i / (float)MAX_ROCKS * 360.f);
+			y = radius * cos((float)i / (float)MAX_ROCKS * 360.f);
 		Rock* rock = new Rock("./Textures/rock.bmp");
 		rock->position(50 + x, -10, 900 + y);
 		rock->size(2.5f, 2.5f, 2.5f);
@@ -54,19 +57,28 @@ void MyScene::Initialise()
 	}
 
 	for (int i = 0; i < MAX_CLIFFS; i++) {
-		float radius = 2000;
-		float x = radius * sin((float)i / (float) MAX_CLIFFS* 360.f),
+		float radius = 1000;
+		float x = radius * sin((float)i / (float)MAX_CLIFFS* 360.f),
 			y = radius * cos((float)i / (float)MAX_CLIFFS * 360.f);
 		Rock* rock = new Rock("./Textures/canyon.bmp");
 		rock->position(50 + x, -10, 900 + y);
 		rock->size(20, 40, 20);
 		AddObjectToScene(rock);
 	}
+	
+	for (int i = 0; i < MAX_CACTI; i++) {
+		float radius = 500;
+		float x = radius * sin((float) i / (float) MAX_CACTI * 360.f) - (float) rand() / (float) RAND_MAX * radius / 3.f,
+			  y = radius * cos((float) i / (float) MAX_CACTI * 360.f) - (float) rand() / (float) RAND_MAX * radius / 3.f;
+		Cactus* cactus = new Cactus();
+		cactus->position(50 + x, -10, 900 + y);
+		AddObjectToScene(cactus);
+	}
 
 	Cabana* cabana = new Cabana();
 	cabana->position(50, 0, 900);
 	AddObjectToScene(cabana);
-	
+
 	DisplayableObject* sun = new Sun();
 	sun->position(500, 0, 0);
 	sun->size(10, 10, 10);
@@ -76,23 +88,27 @@ void MyScene::Initialise()
 	moon->position(500, 0, 0);
 	moon->size(10, 10, 10);
 	AddObjectToScene(moon);
-	
+
 	Elephant* elephant = new Elephant();
 	elephant->position(0, 0, 890);
-	elephant->size(1, 1, 1);
 	AddObjectToScene(elephant);
-	
+
 	Giraffe* giraffe = new Giraffe();
 	giraffe->position(0, 0, 910);
-	giraffe->size(1, 1, 1);
 	AddObjectToScene(giraffe);
-	
+
+	Lion* lion = new Lion();
+	lion->position(40, -3.5f, 900);
+	lion->size(1.25f, 1.25f, 1.25f);
+	lion->orientation(0, 90, 0);
+	AddObjectToScene(lion);
+
 	Terrain* terrain = new Terrain();
-	terrain->size(2, 1, 2);
+	terrain->size(5, 1, 5);
 	terrain->position(1, -10, 900);
 	AddObjectToScene(terrain);
 
-	DiscoLight* discoLight1 = new DiscoLight(-1,-1,1, GL_LIGHT3, 1);
+	DiscoLight* discoLight1 = new DiscoLight(-1, -1, 1, GL_LIGHT3, 1);
 	discoLight1->position(100, 13.5f, 870);
 	AddObjectToScene(discoLight1);
 
@@ -100,15 +116,18 @@ void MyScene::Initialise()
 	discoLight2->position(100, 13.5f, 930);
 	AddObjectToScene(discoLight2);
 
-	Speaker* speaker1 = new Speaker();
-	speaker1->position(100, 10, 950);
-	speaker1->size(2, 2, 2);
-	AddObjectToScene(speaker1);
+	for (int i = -1; i <= 1;i += 2) {
+		Laser* laser = new Laser();
+		laser->position(100, 13.5f, 25 * i + 900);
+		AddObjectToScene(laser);
+	}
 
-	Speaker* speaker2 = new Speaker();
-	speaker2->position(100, 10, 850);
-	speaker2->size(2, 2, 2);
-	AddObjectToScene(speaker2);
+	for (int i = -1; i <= 1;i += 2) {
+		Speaker* speaker = new Speaker();
+		speaker->position(100, 10, i * 50 + 900);
+		speaker->size(2, 2, 2);
+		AddObjectToScene(speaker);
+	}
 
 	Scaffolding* djScaffolding = new Scaffolding();
 	djScaffolding->position(100, 15, 900);

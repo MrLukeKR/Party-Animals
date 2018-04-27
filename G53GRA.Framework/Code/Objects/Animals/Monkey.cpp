@@ -14,18 +14,23 @@ void Monkey::Display() {
 
 	drawBody();
 	glPushMatrix();
-	glTranslatef(0, 3, headShift);
-	drawHead();
+		glTranslatef(0, 3, headShift);
+		drawHead();
 	glPopMatrix();
 	glPushMatrix();
-	glTranslatef(0, 1.5f, 2);
-	drawLeftArm();
+		glTranslatef(0, 1.5f, 2);
+		drawLeftArm();
 	glPopMatrix();
 	glPushMatrix();
-	glTranslatef(-1, 0, -1.5f);
-	drawRightArm();
+		glTranslatef(-1, 0, -1.5f);
+		drawRightArm();
 	glPopMatrix();
-	
+	glPushMatrix();
+		glTranslatef(2, -1, 0);
+		drawTail();
+	glPopMatrix();
+	glTranslatef(0, -2, 0);
+	drawStool();
 	glPopAttrib();
 	glPopMatrix();
 }
@@ -69,6 +74,14 @@ void Monkey::drawHead() {
 	glPopMatrix();
 }
 
+void Monkey::drawTail() {
+	glPushMatrix();
+		glRotatef(30,0,0,1);
+		glRotatef(headShift * 4, 0, 1, 0);
+		Box::box(2, 0.1f, 0.1f);
+	glPopMatrix();
+}
+
 void Monkey::drawMouth() {
 	glPushMatrix();
 		glColor4f(0, 0, 0, 1);
@@ -100,6 +113,34 @@ void Monkey::drawEar() {
 	glPopMatrix();
 }
 
+void Monkey::drawStool() {
+	glDisable(GL_LIGHTING);
+	glColor4f(0, 0, 1, 1);
+	glPushMatrix();
+		glRotatef(90, 1, 0, 0);
+		GLUquadric* quad = gluNewQuadric();
+		gluCylinder(quad, 2, 2, 0.2f, 10, 10);
+		glTranslatef(0, -0.1f, 0);
+		for (int i = -1; i <= 1; i += 2) {
+			glPushMatrix();
+				glRotatef(i * 180, 1, 0, 0);
+				glTranslatef(0, i * 0.1f, 0);
+				gluDisk(quad, 0, 2, 10, 10);
+			glPopMatrix();
+		}
+		glTranslatef(0, -0.1f, 0);
+		glRotatef(-90, 1, 0, 0);
+		glRotatef(-30, 0, 1, 0);
+		for (int i = 0; i < 3; i++) {
+			glRotatef(120, 0, 1, 0);
+			glPushMatrix();
+				glRotatef(70, 1, 0, 0);
+				gluCylinder(quad, 0.3f, 0.25f, 8, 5, 5);
+			glPopMatrix();
+		}
+	glPopMatrix();
+	glEnable(GL_LIGHTING);
+}
 
 void Monkey::drawBody() {
 	glPushMatrix();

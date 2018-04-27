@@ -8,7 +8,7 @@ class DiscoBallParrot :
 {
 public:
 	DiscoBallParrot();
-	~DiscoBallParrot() {};
+	~DiscoBallParrot() ;
 
 	void Display();
 	void Update(const double& dT);

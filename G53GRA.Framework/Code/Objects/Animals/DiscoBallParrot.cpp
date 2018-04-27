@@ -23,6 +23,13 @@ DiscoBallParrot::DiscoBallParrot() {
 	discoBallTex = Scene::GetTexture("./Textures/discoball.bmp");
 }
 
+DiscoBallParrot::~DiscoBallParrot() {
+	delete[] degree;
+	delete[] x;
+	delete[] y;
+	delete[] z;
+}
+
 void DiscoBallParrot::Display() {
 	glPushMatrix();
 			glPushAttrib(GL_ALL_ATTRIB_BITS);

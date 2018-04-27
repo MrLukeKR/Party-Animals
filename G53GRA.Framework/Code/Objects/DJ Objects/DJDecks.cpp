@@ -42,18 +42,12 @@ void DJDecks::drawVinyl() {
 	glPushMatrix();
 	glTranslatef(0, 4.5f, 0);
 	glRotatef(-90, 1, 0, 0);
-	gluCylinder(gluNewQuadric(), 1, 0.6f, 0.2f, 10, 10);
-	glRotatef(90, 1, 0, 0);
-	glTranslatef(0, .2f, 0);
-	glBegin(GL_TRIANGLE_FAN);
-	float r = 0.6f;
-	float res = 20 ;
-	glVertex3f(0, 0, 0);
-	for (int i = res; i >= 0; i--)
-		glVertex3f(r * cos(i * 2 * 3.14159265f / res), 0, r * sin(i * 2 * 3.14159265f / res));
-
-	glEnd();
-
+	gluCylinder(gluNewQuadric(), 1, 0.6f, 0.05f, 10, 10);
+	glTranslatef(0.05f, 0, 0.05f);
+	glDisable(GL_LIGHTING);
+	glColor4f(0, 0, 0, 1);
+	gluDisk(gluNewQuadric(), 0.1f, 1.5f, 10, 10);
+	glEnable(GL_LIGHTING);
 	glPopMatrix();
 }
 

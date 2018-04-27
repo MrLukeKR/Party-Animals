@@ -21,6 +21,8 @@ private:
 	void drawEar();
 	void drawSunglasses();
 	void drawMouth();
+	void drawTail();
+	void drawStool();
 
 	bool reverseShift = false;
 	float elbowRotation = 0, shoulderRotation = -80, headShift = 0;

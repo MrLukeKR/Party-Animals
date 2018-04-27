@@ -33,15 +33,6 @@
     <ClCompile Include="Code\MyScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Objects\Tree.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Objects\Skybox.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Objects\Terrain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Objects\Lights\Sun.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -93,16 +84,34 @@
     <ClCompile Include="Code\Objects\Animals\DiscoBallParrot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Objects\Cabana.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Objects\PartyHat.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Code\Objects\DJ Objects\Meter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Objects\Rock.cpp">
+    <ClCompile Include="Code\Objects\DJ Objects\Laser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Objects\Environment\Cabana.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Objects\Environment\Rock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Objects\Environment\Skybox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Objects\Environment\Tree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Objects\Environment\Terrain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Objects\Environment\Cactus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Objects\Animals\Lion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -134,16 +143,7 @@
     <ClInclude Include="Code\MyScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Objects\Tree.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Objects\Skybox.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Objects\Lights\Sun.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Objects\Terrain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Code\Objects\Lights\Moon.h">
@@ -188,16 +188,34 @@
     <ClInclude Include="Code\Objects\Animals\DiscoBallParrot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Objects\Cabana.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Objects\PartyHat.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Code\Objects\DJ Objects\Meter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Objects\Rock.h">
+    <ClInclude Include="Code\Objects\DJ Objects\Laser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Objects\Environment\Cabana.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Objects\Environment\Rock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Objects\Environment\Terrain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Objects\Environment\Skybox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Objects\Environment\Tree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Objects\Environment\Cactus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Objects\Animals\Lion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

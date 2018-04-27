@@ -90,6 +90,8 @@ void Elephant::drawHead() {
 void Elephant::drawTrunk() {
 	glColor3f(0.3f, 0.3f, 0.3f);
 	glPushMatrix();
+	glTranslatef(0, animationAngle / 15.f, 0);
+	glRotatef(animationAngle, 0, 0, 1);
 		Box::box(4, 0.75f, 0.75f, elephantTex);
 	glPopMatrix();
 }
@@ -114,21 +116,21 @@ void Elephant::drawEars() {
 	glColor3f(0.3f, 0.3f, 0.3f);
 	glPushMatrix();
 		glTranslatef(0,3,3);
-		glRotatef(-45 - earAngle,0,1,0);
+		glRotatef(-45 - animationAngle,0,1,0);
 		Box::box(0.1f, 2, 2, elephantTex);
 	glPopMatrix();
 	glPushMatrix();
 		glTranslatef(0, 3, -3);
-		glRotatef(45 + earAngle, 0, 1, 0);
+		glRotatef(45 + animationAngle, 0, 1, 0);
 		Box::box(0.1f, 2, 2, elephantTex);
 	glPopMatrix();
 }
 
 void Elephant::Update(const double& dT) {
-	earAngle += reverseEarFlap ? -5 : 5;
+	animationAngle += reverseAnimation ? -5 : 5;
 
-	if (earAngle >= 45)
-		reverseEarFlap = true;
-	else if (earAngle <= -45)
-		reverseEarFlap = false;
+	if (animationAngle >= 45)
+		reverseAnimation = true;
+	else if (animationAngle <= -45)
+		reverseAnimation = false;
 } 
